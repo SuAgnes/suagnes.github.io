@@ -305,6 +305,22 @@
   
 
   
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/tags/index.html",
+  owner: 'suagnes',
+  repo: 'suagnes.github.io',
+  oauth: {
+    client_id: '4e311e5176678322f18a',
+    client_secret: '23ded061007809a2e5afdc4995b416197c2f3f5a',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
  <!-- 目录内容 -->
