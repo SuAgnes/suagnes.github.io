@@ -8,3 +8,23 @@
 .toc-article ol, .toc-article ul {
     margin: 10px 0;
 }
+/* 自定义样式 */
+.page-reward .page-reward-btn{
+    background: pink;
+}
+.tooltip-top .tooltip-inner{
+    background: pink    
+}
+.page-reward .reward-p{
+    text-shadow: 1px 1px 1px #f2d7f5
+}
+.page-reward .page-reward-btn .tooltip-item{
+    text-indent: 4.5px;
+}
+.article-entry p{
+    margin:0;
+}
+.tooltip-top .tooltip-content{
+    margin: 0 0 -10px -250px;
+    width: 500px;
+}
