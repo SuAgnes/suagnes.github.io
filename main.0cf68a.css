@@ -34,7 +34,7 @@
 background-color: #ffe8ec !important;
 color: rgb(173, 173, 173) !important;
 }
-a.gitment-footer-project-link, a.gitment-footer-project-link:visited, a.gitment-editor-login-link, a.gitment-editor-login-link:visited{
+a.gitment-footer-project-link, a.gitment-footer-project-link:visited, a.gitment-editor-login-link, a.gitment-editor-login-link:visited,a.gitment-editor-logout-link:hover{
     color: #000 !important;
     font-weight: bold;
 }
