@@ -30,7 +30,7 @@
     margin: 0 0 -10px -250px;
     width: 500px;
 }
-.gitment-comments-init-btn:disabled, .gitment-editor-submit:disabled{
+.gitment-comments-init-btn:disabled, .gitment-editor-submit:disabled,.gitment-editor-submit, .gitment-comments-init-btn{
 background-color: #ffe8ec !important;
 color: rgb(173, 173, 173) !important;
 }
