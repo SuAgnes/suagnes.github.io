@@ -10,16 +10,16 @@
 }
 /* 自定义样式 */
 .page-reward .page-reward-btn{
-    background: pink;
+    background: #ffe8ec;
 }
 .tooltip-top .tooltip-inner{
-    background: pink    
+    background: #ffe8ec;    
 }
 .page-reward .reward-p{
     text-shadow: 1px 1px 1px #f2d7f5
 }
 .page-reward .page-reward-btn .tooltip-item{
-    text-indent: 4.5px;
+    text-indent: 4px;
 }
 .article-entry p{
     margin:0;
