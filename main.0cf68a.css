@@ -11,7 +11,9 @@
 /* 自定义样式 */
 .page-reward .page-reward-btn{
     background: #ffe8ec;
+    /* background: rgba(36,193,246,.9) */
 }
+
 .tooltip-top .tooltip-inner{
     background: #ffe8ec;    
 }
