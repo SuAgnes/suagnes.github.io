@@ -21,7 +21,7 @@ const ap = new APlayer({
         {
             name: 'Wait',
             artist: 'NoMBe',
-            url: 'https://m10.music.126.net/20181207183015/83bc90a8a6e69dfd6610853b1f586f3c/ymusic/c1fb/5cb4/3211/cf3fc3f594b616d9217c12a816b1cd86.mp3',
+            url: 'https://m10.music.126.net/20181207190119/3707249a646ea978bcfacb35c16a94d6/ymusic/c1fb/5cb4/3211/cf3fc3f594b616d9217c12a816b1cd86.mp3',
             cover: 'https://p2.music.126.net/BMi28upQKHs1kvXteHiotg==/18705991325076241.jpg?param=130y130',
             lrc:'/dist/lrc/wait.lrc'
         },
