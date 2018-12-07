@@ -15,8 +15,8 @@
 <meta property="og:url" content="http://suagnes.com/2018/11/07/My-New-Post/index.html">
 <meta property="og:site_name" content="Rachel Song">
 <meta property="og:description" content="2018年11月7日23点51分搭建博客。2018年11月11号更换博客主题。">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-07T11:46:56.569Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-07T12:38:42.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客搭建记录">
 <meta name="twitter:description" content="2018年11月7日23点51分搭建博客。2018年11月11号更换博客主题。">
@@ -184,33 +184,6 @@
             阅读量 <span id="busuanzi_value_page_pv"></span>
           </span>
       
-      <!-- 目录内容 -->
- 
-  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-        <span class="btn-bg"></span>
-        <span class="btn-text">文章导航</span>
-        </p>
-  <div id="toc-article" class="toc-article">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-      <strong class="toc-title">文章目录</strong>
-         
-       </div>
- <script type="text/javascript">
-  function showToc(){
-      var toc_article = document.getElementById("toc-article");
-      var show_toc_btn = document.getElementById("show-toc-btn");
-      toc_article.setAttribute("style","display:block");
-      show_toc_btn.setAttribute("style","display:none");
-      };
-  function showBtn(){
-      var toc_article = document.getElementById("toc-article");
-      var show_toc_btn = document.getElementById("show-toc-btn");
-      toc_article.setAttribute("style","display:none");
-      show_toc_btn.setAttribute("style","display:block");
-      };
- </script>
-    
-<!-- 目录内容结束 -->
       </header>
     
    
@@ -326,15 +299,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/11/07/My-New-Post.1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          1204
-        
-      </div>
-    </a>
   
+    <a href="/2018/11/07/My-New-Post.1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">1204</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -351,19 +320,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    目录，不存在的…
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
@@ -394,6 +350,34 @@ gitment.render('gitment-ctn')
 </script>
   
 
+
+ <!-- 目录内容 -->
+ 
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+  <div id="toc-article" class="toc-article">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+         
+       </div>
+ <script type="text/javascript">
+  function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+  function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+ </script>
+    
+<!-- 目录内容结束 -->
           </div>
         </div>
       </div>
