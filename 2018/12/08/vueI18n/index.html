@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://suagnes.github.io">
-  <title>Archives: 2018/12 | Rachel Song</title>
+  <title>vue+vue-i18n搭建国际化网站【兼容Element-UI、动态切换css】 | Rachel Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Rachel Song">
-<meta property="og:url" content="http://suagnes.github.io/archives/2018/12/index.html">
+  <meta name="description" content="&amp;nbsp;最近因为雾霾下的很厉害，所以发烧了在家养病，想着难得有空，正好趁机整理一下以前项目中遇到过的问题及需求。今天想来写一下之前为项目搭建的国际化（i18n）功能，由于之前项目主要是使用的Vue+Element-UI，所以本文章中分别有vue-i18n和兼容element-ui的vue-i18n两种写法，大家可以按需参考。">
+<meta name="keywords" content="categories,vue,i18n,element-ui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue+vue-i18n搭建国际化网站【兼容Element-UI、动态切换css】">
+<meta property="og:url" content="http://suagnes.github.io/2018/12/08/vueI18n/index.html">
 <meta property="og:site_name" content="Rachel Song">
+<meta property="og:description" content="&amp;nbsp;最近因为雾霾下的很厉害，所以发烧了在家养病，想着难得有空，正好趁机整理一下以前项目中遇到过的问题及需求。今天想来写一下之前为项目搭建的国际化（i18n）功能，由于之前项目主要是使用的Vue+Element-UI，所以本文章中分别有vue-i18n和兼容element-ui的vue-i18n两种写法，大家可以按需参考。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img1.jpg">
+<meta property="og:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img2.jpg">
+<meta property="og:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img3.jpg">
+<meta property="og:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img4.jpg">
+<meta property="og:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img5.jpeg">
+<meta property="og:updated_time" content="2018-12-08T16:12:27.626Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rachel Song">
+<meta name="twitter:title" content="vue+vue-i18n搭建国际化网站【兼容Element-UI、动态切换css】">
+<meta name="twitter:description" content="&amp;nbsp;最近因为雾霾下的很厉害，所以发烧了在家养病，想着难得有空，正好趁机整理一下以前项目中遇到过的问题及需求。今天想来写一下之前为项目搭建的国际化（i18n）功能，由于之前项目主要是使用的Vue+Element-UI，所以本文章中分别有vue-i18n和兼容element-ui的vue-i18n两种写法，大家可以按需参考。">
+<meta name="twitter:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Rachel Song" type="application/atom+xml">
   
@@ -163,37 +174,127 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vueI18n" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/08/vueI18n/" class="archive-article-date">
-  	<time datetime="2018-12-08T09:19:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/08/vueI18n/">vue+vue-i18n搭建国际化网站【兼容Element-UI、动态切换css】</a>
+    <h1 class="article-title" itemprop="name">
+      vue+vue-i18n搭建国际化网站【兼容Element-UI、动态切换css】
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+        
+        <a href="/2018/12/08/vueI18n/" class="archive-article-date">
+  	<time datetime="2018-12-08T09:19:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-08</time>
+</a>
+        
+        
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+           <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;" class="word-css">
+    <!-- <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.7k字</span>
+      </span>
+    </span> -->
+    <span class="post-time">
+      <!-- &nbsp; | &nbsp; -->
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">7分</span>
+      </span>
+    </span>
+</div>
+<style>
+.word-css *{
+    color: #999;
+    font-size: 13px;
+}
+/* .word-css{
+    position: absolute;
+    margin-top: 0 !important;
+    right: 7%;
+} */
+</style>
           
+        <!-- 添加完成 -->
+      
+      </header>
+    
+   
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;<br>最近因为雾霾下的很厉害，所以发烧了在家养病，想着难得有空，正好趁机整理一下以前项目中遇到过的问题及需求。今天想来写一下之前为项目搭建的国际化（i18n）功能，由于之前项目主要是使用的Vue+Element-UI，所以本文章中分别有vue-i18n和兼容element-ui的vue-i18n两种写法，大家可以按需参考。<br><a id="more"></a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文是基于vue进行实现的国际化功能，我们假设你对vue已经有了一定的了解，并且已经拥有了属于你自己的vue项目环境，这里不做过多阐述，如果对这一步有疑问的话，请参考我的另一篇<a href="/2018/12/08/BuildProjectsVue/" title="文章">文章</a>，进行项目搭建。<br>如果你只是急需一个已经搭建好的i18n模版，也可以直接去<a href="#github地址">我的github</a>下载我已经写好的项目模版。</p>
+<h1 id="vue-i18n"><a href="#vue-i18n" class="headerlink" title="vue-i18n"></a>vue-i18n</h1><h2 id="安装vue-i18n"><a href="#安装vue-i18n" class="headerlink" title="安装vue-i18n"></a>安装vue-i18n</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-i18n</span><br></pre></td></tr></table></figure>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>如下图创建i18n文件夹，在i18n文件夹里分别创建<strong>i18n.js</strong>、<strong>langs文件夹</strong>，在<strong>langs文件夹下</strong>面创建你的语言文件（<strong>cn.js/en.js/ja.js</strong>）和<strong>index.js</strong>文件。<br>语言包分别为中文/英文/日语，大家在项目中选择创建自己需要的语言包即可。<br><img src="/2018/12/08/vueI18n/../vueI18n/img1.jpg" alt="目录示例" title="目录示例"></p>
+<h3 id="i18n-js"><a href="#i18n-js" class="headerlink" title="i18n.js"></a>i18n.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueI18n <span class="keyword">from</span> <span class="string">'vue-i18n'</span></span><br><span class="line"><span class="keyword">import</span> messages <span class="keyword">from</span> <span class="string">'./langs'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueI18n)</span><br><span class="line"><span class="comment">//从localStorage中拿到用户的语言选择，如果没有，那默认中文。</span></span><br><span class="line"><span class="keyword">const</span> i18n = <span class="keyword">new</span> VueI18n(&#123;</span><br><span class="line">  locale: localStorage.lang || <span class="string">'cn'</span>,</span><br><span class="line">  messages,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> i18n</span><br></pre></td></tr></table></figure>
+<h3 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> en <span class="keyword">from</span> <span class="string">'./en'</span></span><br><span class="line"><span class="keyword">import</span> cn <span class="keyword">from</span> <span class="string">'./cn'</span></span><br><span class="line"><span class="keyword">import</span> ja <span class="keyword">from</span> <span class="string">'./ja'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  en,</span><br><span class="line">  cn,</span><br><span class="line">  ja,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="cn-js"><a href="#cn-js" class="headerlink" title="cn.js"></a>cn.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cn = &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        <span class="string">'hello'</span>: <span class="string">'你好'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> cn</span><br></pre></td></tr></table></figure>
+<h3 id="en-js"><a href="#en-js" class="headerlink" title="en.js"></a>en.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> en = &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        <span class="string">'hello'</span>: <span class="string">'hello'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> en</span><br></pre></td></tr></table></figure>
+<h3 id="ja-js"><a href="#ja-js" class="headerlink" title="ja.js"></a>ja.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ja = &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        <span class="string">'hello'</span>: <span class="string">'こんにちは'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ja</span><br></pre></td></tr></table></figure>
+<p>🌟 <strong>在配置语言包的时候，key值一定要保持统一</strong>，因为i18n是通过你的key值来切换语言的，如果key值有误，就不能正确的切换语言包，这一点千万要注意。</p>
+<h3 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> i18n <span class="keyword">from</span> <span class="string">'./i18n/i18n'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  router,</span><br><span class="line">  i18n, <span class="comment">//加上i18n</span></span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: <span class="string">'&lt;App/&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>到此我们的i18n已经全部配置结束了，下面我们去页面中进行使用。</p>
+<h2 id="配置页面"><a href="#配置页面" class="headerlink" title="配置页面"></a>配置页面</h2><h3 id="HTML部分"><a href="#HTML部分" class="headerlink" title="HTML部分"></a>HTML部分</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;$t(‘message.hello’)&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>//此时应该是中文</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"switchLang('en')"</span>&gt;</span>英语<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"switchLang('cn')"</span>&gt;</span>中文<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"switchLang('ja')"</span>&gt;</span>日语<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Js部分"><a href="#Js部分" class="headerlink" title="Js部分"></a>Js部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">    switchLang(lang)  &#123;</span><br><span class="line">        <span class="keyword">this</span>.$i18n.locale = lang </span><br><span class="line">        <span class="comment">//把语言保存在localStorage中</span></span><br><span class="line">        localStorage.setItem(<span class="string">'lang'</span>,lang);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p>到此，运行<code>npm run dev</code>就可以看到可以进行语言切换的项目了。</p>
+<h2 id="根据语言切换css"><a href="#根据语言切换css" class="headerlink" title="根据语言切换css"></a>根据语言切换css</h2><p>到此，我们已经实现了基本的国际化功能。但是，我们在切换语言的时候不得不面临的一个问题就是因为语言的不同，即使是同一句话，文字样式的长度也会不同。所以这时候特别容易产生一些页面样式上的结构错位，为此我们就需要根据不同语言来切换项目的css。我这边提供的思路是在最上层html的div上添加一个可以动态切换class的变量，以改变项目的父级的class名称，实现切换语言的同时切换css样式。</p>
+<h3 id="HTML部分-1"><a href="#HTML部分-1" class="headerlink" title="HTML部分"></a>HTML部分</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">:class</span>=<span class="string">"langCss"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Js部分-1"><a href="#Js部分-1" class="headerlink" title="Js部分"></a>Js部分</h3><p>在data中定义保存class的变量<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data () &#123;</span><br><span class="line">   <span class="keyword">return</span> &#123;</span><br><span class="line">     langCss:<span class="built_in">window</span>.localStorage.getItem(<span class="string">'lang'</span>)||<span class="string">'cn'</span>,</span><br><span class="line">     <span class="comment">//先去取localStorage里保存的语言，如果没有，那么就默认中文</span></span><br><span class="line">     <span class="comment">//这么做的意义是为了用户在刷新页面的时候样式不丢失。</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>紧接着在我们的switchlLang函数后添加新的一行，以便在切换语言的同时切换class。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">switchLang(lang)  &#123;</span><br><span class="line">     <span class="keyword">this</span>.$i18n.locale = lang </span><br><span class="line">     localStorage.setItem(<span class="string">'lang'</span>,lang);</span><br><span class="line">     <span class="keyword">this</span>.langCss=lang;<span class="comment">//新添加的，以便切换父级class</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Css部分"><a href="#Css部分" class="headerlink" title="Css部分"></a>Css部分</h3><p>在style标签中中设置你想要的样式，我这边以改变文字颜色为例。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.en</span> <span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: steelblue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.cn</span> <span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#666</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.ja</span> <span class="selector-tag">button</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: seagreen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>到此vue-i18n的内容就全部结束了，由于现在很多人在使用vue的同时会搭配Element-UI使用，所以我们在现在的基础上优化一下我们的项目 以便可以兼容Element-UI。</p>
+<h1 id="兼容Element-UI的i18n"><a href="#兼容Element-UI的i18n" class="headerlink" title="兼容Element-UI的i18n"></a>兼容Element-UI的i18n</h1><h2 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h2><p><a href="http://element-cn.eleme.io/#/zh-CN/component/installation" title="Element组件文档" target="_blank" rel="noopener">Element组件文档</a><br><a href="http://element-cn.eleme.io/#/zh-CN/component/i18n" title="Element-i18n" target="_blank" rel="noopener">Element官网-i18n</a></p>
+<h2 id="安装Element相关依赖"><a href="#安装Element相关依赖" class="headerlink" title="安装Element相关依赖"></a>安装Element相关依赖</h2><p><code>npm install element-ui -s</code></p>
+<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><h3 id="main-js-1"><a href="#main-js-1" class="headerlink" title="main.js"></a>main.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ElementUI <span class="keyword">from</span> <span class="string">'element-ui'</span></span><br><span class="line"><span class="keyword">import</span> ‘element-ui/lib/theme-chalk/index.css<span class="string">';</span></span><br><span class="line"><span class="string">Vue.use(ElementUI);</span></span><br><span class="line"><span class="string">new Vue(&#123;</span></span><br><span class="line"><span class="string">  store:store,</span></span><br><span class="line"><span class="string">  i18n,</span></span><br><span class="line"><span class="string">  ElementUI,//添加element-ui</span></span><br><span class="line">  el: '#app',</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: <span class="string">'&lt;App/&gt;'</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="i18n-js-1"><a href="#i18n-js-1" class="headerlink" title="i18n.js"></a>i18n.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line"><span class="keyword">import</span> locale <span class="keyword">from</span> <span class="string">'element-ui/lib/locale'</span>;</span><br><span class="line"><span class="keyword">import</span> VueI18n <span class="keyword">from</span> <span class="string">'vue-i18n'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> messages <span class="keyword">from</span> <span class="string">'./langs'</span>;</span><br><span class="line">Vue.use(VueI18n);</span><br><span class="line"><span class="comment">//从localStorage中拿到用户的语言选择，如果没有，那默认中文。</span></span><br><span class="line"><span class="keyword">const</span> i18n = <span class="keyword">new</span> VueI18n(&#123;</span><br><span class="line">    locale: localStorage.lang || <span class="string">'cn'</span>,</span><br><span class="line">    messages,</span><br><span class="line">&#125;)</span><br><span class="line">locale.i18n(<span class="function">(<span class="params">key, value</span>) =&gt;</span> i18n.t(key, value)) <span class="comment">//为了实现element插件的多语言切换</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> i18n</span><br></pre></td></tr></table></figure>
+<h3 id="修改语言包"><a href="#修改语言包" class="headerlink" title="修改语言包"></a>修改语言包</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// en.js</span></span><br><span class="line"><span class="keyword">import</span> enLocale <span class="keyword">from</span> <span class="string">'element-ui/lib/locale/lang/en'</span></span><br><span class="line"><span class="keyword">const</span> en = &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        <span class="string">'hello'</span>: <span class="string">'hello'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    ...enLocale</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> en;</span><br><span class="line"></span><br><span class="line"><span class="comment">// **********分割线**********</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// cn.js</span></span><br><span class="line"><span class="keyword">import</span> zhLocale <span class="keyword">from</span> <span class="string">'element-ui/lib/locale/lang/zh-CN'</span></span><br><span class="line"><span class="keyword">const</span> cn = &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        hello: <span class="string">'你好，世界'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    ...zhLocale</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> cn;</span><br><span class="line"></span><br><span class="line"><span class="comment">// **********分割线**********</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ja.js</span></span><br><span class="line"><span class="keyword">import</span> jaLocale <span class="keyword">from</span> <span class="string">'element-ui/lib/locale/lang/ja'</span></span><br><span class="line"><span class="keyword">const</span> ja = &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        hello: <span class="string">'こんにちは、世界'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    ...jaLocale</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ja;</span><br></pre></td></tr></table></figure>
+<p>如果console里有如⬇️警告，证明的你语言包没有配置正确，返回上一步<a href="#修改语言包">修改语言包</a>查看。<br><img src="/2018/12/08/vueI18n/../vueI18n/img2.jpg" alt="警告" title="警告"></p>
+<h2 id="配置页面-1"><a href="#配置页面-1" class="headerlink" title="配置页面"></a>配置页面</h2><h3 id="引用组件"><a href="#引用组件" class="headerlink" title="引用组件"></a>引用组件</h3><p>至此，我们就可以引入一个Element-UI的组件进行开发了，这里以<a href="http://element-cn.eleme.io/#/zh-CN/component/dialog#dialog-dui-hua-kuang" title="dialog组件" target="_blank" rel="noopener">dialog组件</a>为例演示一下基于Element-UI的文字的国际化方案。当然，你也可以去<a href="http://element-cn.eleme.io/#/zh-CN/component/installation" title="Element组件文档" target="_blank" rel="noopener">Element组件文档</a>去引用一些别的组件，这全看你自己的项目需要。</p>
+<p>我引用的是第一个dialog组件【基本用法】，引用成功后，页面如下图，这里不对组件引用做过多阐述。<br><img src="/2018/12/08/vueI18n/../vueI18n/img3.jpg" alt="dialog" title="dialog"><br>此时切换语言后，我们发现暴露在外层我们可修改的语言文字并不会有变化，但是你点击右上角的关闭符号后，会发现里面内置的语言已经改变了。<br><img src="/2018/12/08/vueI18n/../vueI18n/img4.jpg" alt="dialog" title="dialog"></p>
+<h3 id="Js调用"><a href="#Js调用" class="headerlink" title="Js调用"></a>Js调用</h3><p>下面需要我们来手动配置一下未切换文字的语言包，配置方法同上文的<a href="#配置页面">配置页面</a>，这里我顺便说一下，在js里调用国际化直接用this.$t(‘message.xxx’)即可，如下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">handleClose(done) &#123;</span><br><span class="line">        <span class="keyword">this</span>.$confirm(<span class="keyword">this</span>.$t(<span class="string">'message.confirm'</span>))<span class="comment">//js内部切换</span></span><br><span class="line">          .then(<span class="function"><span class="params">_</span> =&gt;</span> &#123;</span><br><span class="line">            done();</span><br><span class="line">          &#125;)</span><br><span class="line">          .catch(<span class="function"><span class="params">_</span> =&gt;</span> &#123;&#125;);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h1><p>到此，国际化内容全部结束，我把所有代码都放到了<a href="https://github.com/SuAgnes/vuei18n" title="github-i18n" target="_blank" rel="noopener">我的github仓库</a>上，里面提供了vue-i18n以及兼容Element-UI的两种国际化版本。假如上文中还有哪里不明白的，可以直接下载下来参考。如果有任何疑问或补充，欢迎在评论区给我留言讨论。<br>感谢观看<br>鞠躬 ～<br><img src="/2018/12/08/vueI18n/../vueI18n/img5.jpeg" alt="比心" title="比心表情包"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">☀️</span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <!-- <p class="reward-p"><i class="icon icon-quo-left"></i><i class="icon icon-quo-right"></i></p> -->
+                  <p class="reward-p">
+                      </p><p>if(killProgrammer&&noGuns){</p>
+                        <p>oProgrammer.write(change in demand!)}</p>
+                  <p></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -217,64 +318,152 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/08/BuildProjectsVue/" class="archive-article-date">
-  	<time datetime="2018-12-07T17:29:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/08/BuildProjectsVue/">使用vue-cli从0搭建Vue开发环境</a>
-    </h1>
-  
+</div>
 
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://suagnes.github.io/2018/12/08/vueI18n/" alt="微信分享二维码">
+    </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">categories</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
+  <!-- <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+   </span> -->
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/12/08/BuildProjectsVue/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用vue-cli从0搭建Vue开发环境</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+  
   
 
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://suagnes.github.io/2018/12/08/vueI18n/",
+  owner: 'suagnes',
+  repo: 'suagnes.github.io',
+  oauth: {
+    client_id: '4e311e5176678322f18a',
+    client_secret: '23ded061007809a2e5afdc4995b416197c2f3f5a',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
+
+
+ <!-- 目录内容 -->
+ 
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+  <div id="toc-article" class="toc-article">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-i18n"><span class="toc-number">2.</span> <span class="toc-text">vue-i18n</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vue-i18n"><span class="toc-number">2.1.</span> <span class="toc-text">安装vue-i18n</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件"><span class="toc-number">2.2.</span> <span class="toc-text">配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i18n-js"><span class="toc-number">2.2.1.</span> <span class="toc-text">i18n.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index-js"><span class="toc-number">2.2.2.</span> <span class="toc-text">index.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cn-js"><span class="toc-number">2.2.3.</span> <span class="toc-text">cn.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#en-js"><span class="toc-number">2.2.4.</span> <span class="toc-text">en.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ja-js"><span class="toc-number">2.2.5.</span> <span class="toc-text">ja.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#main-js"><span class="toc-number">2.2.6.</span> <span class="toc-text">main.js</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置页面"><span class="toc-number">2.3.</span> <span class="toc-text">配置页面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML部分"><span class="toc-number">2.3.1.</span> <span class="toc-text">HTML部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Js部分"><span class="toc-number">2.3.2.</span> <span class="toc-text">Js部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#根据语言切换css"><span class="toc-number">2.4.</span> <span class="toc-text">根据语言切换css</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML部分-1"><span class="toc-number">2.4.1.</span> <span class="toc-text">HTML部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Js部分-1"><span class="toc-number">2.4.2.</span> <span class="toc-text">Js部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Css部分"><span class="toc-number">2.4.3.</span> <span class="toc-text">Css部分</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#兼容Element-UI的i18n"><span class="toc-number">3.</span> <span class="toc-text">兼容Element-UI的i18n</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考网址"><span class="toc-number">3.1.</span> <span class="toc-text">参考网址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Element相关依赖"><span class="toc-number">3.2.</span> <span class="toc-text">安装Element相关依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配置"><span class="toc-number">3.3.</span> <span class="toc-text">修改配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#main-js-1"><span class="toc-number">3.3.1.</span> <span class="toc-text">main.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#i18n-js-1"><span class="toc-number">3.3.2.</span> <span class="toc-text">i18n.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改语言包"><span class="toc-number">3.3.3.</span> <span class="toc-text">修改语言包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置页面-1"><span class="toc-number">3.4.</span> <span class="toc-text">配置页面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用组件"><span class="toc-number">3.4.1.</span> <span class="toc-text">引用组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Js调用"><span class="toc-number">3.4.2.</span> <span class="toc-text">Js调用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#github地址"><span class="toc-number">4.</span> <span class="toc-text">github地址</span></a></li></ol>
+       </div>
+ <script type="text/javascript">
+  function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+  function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+ </script>
     
-
-
+<!-- 目录内容结束 -->
           </div>
         </div>
       </div>
@@ -323,8 +512,8 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

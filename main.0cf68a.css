@@ -109,3 +109,13 @@ pre .tag {
 pre .comment {
     color: #bbb38e;
 }
+.archive-article-date{
+    font-size: 13px;
+    line-height: 45px;
+}
+pre .string, pre .value{
+    color: #b581f3;
+}
+pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .preprocessor .keyword, pre .title{
+    color: #f18733;
+}
