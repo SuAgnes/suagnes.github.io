@@ -119,3 +119,6 @@ pre .string, pre .value{
 pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .preprocessor .keyword, pre .title{
     color: #f18733;
 }
+.toc-article{
+    max-height: 300px;
+}
