@@ -126,3 +126,9 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
 .tooltip-left .tooltip{
     z-index: 0;
 }
+.gitment-footer-container{
+    display: none;
+}
+.gitment-editor-footer{
+    display: none;
+}
