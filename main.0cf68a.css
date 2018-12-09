@@ -120,5 +120,9 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
     color: #f18733;
 }
 .toc-article{
+    top: 110px;
     max-height: 300px;
+}
+.tooltip-left .tooltip{
+    z-index: 0;
 }
