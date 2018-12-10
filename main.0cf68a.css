@@ -129,6 +129,3 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
 .gitment-footer-container{
     display: none;
 }
-.gitment-editor-footer{
-    display: none;
-}
