@@ -132,6 +132,11 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
 .declare {
     background-color: #eaeaea;
     margin-top: 2em;
-    border-left: 3px solid #ff1700;
+    border-left: 3px solid #cbd4f5;
     padding: .5em 1em;
+    font-size: 13px;
+}
+.article-entry pre code{
+    color: #7f6cd6f7;
+    color: #968accf7;
 }
