@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://suagnes.github.io/2018/12/24/depthClone/</loc>
+    <lastmod>2018-12-24T16:45:18.136Z</lastmod>
+  </url>  <url>
+    <loc>http://suagnes.github.io/2018/11/07/My-New-Post.1/</loc>
+    <lastmod>2018-12-19T06:55:33.603Z</lastmod>
+  </url>  <url>
+    <loc>http://suagnes.github.io/2018/12/08/BuildProjectsVue/</loc>
+    <lastmod>2018-12-19T06:54:47.478Z</lastmod>
+  </url>  <url>
     <loc>http://suagnes.github.io/2018/12/12/musicLinks/</loc>
-    <lastmod>2018-12-18T15:42:21.868Z</lastmod>
+    <lastmod>2018-12-19T03:38:20.712Z</lastmod>
   </url>  <url>
     <loc>http://suagnes.github.io/2018/12/08/vueI18n/</loc>
     <lastmod>2018-12-09T03:47:18.213Z</lastmod>
-  </url>  <url>
-    <loc>http://suagnes.github.io/2018/12/08/BuildProjectsVue/</loc>
-    <lastmod>2018-12-08T15:56:46.023Z</lastmod>
-  </url>  <url>
-    <loc>http://suagnes.github.io/2018/11/07/My-New-Post.1/</loc>
-    <lastmod>2018-12-08T05:10:28.346Z</lastmod>
   </url>  <url>
     <loc>http://suagnes.github.io/2018/11/07/My-New-Post/</loc>
     <lastmod>2018-12-08T05:03:39.878Z</lastmod>

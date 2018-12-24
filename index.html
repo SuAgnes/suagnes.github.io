@@ -57,7 +57,7 @@
 	        
 				<li><a href="/tags/categories">随笔</a></li>
 	        
-				<li><a href="/tags/node">学习笔记</a></li>
+				<li><a href="/tags/notes">学习笔记</a></li>
 	        
 			</ul>
 		</nav>
@@ -142,7 +142,7 @@
 		        
 					<li style="width: 33.333333333333336%"><a href="/tags/categories">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/node">学习笔记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/notes">学习笔记</a></li>
 		        
 				</ul>
 			</nav>
@@ -158,6 +158,99 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-depthClone" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/24/depthClone/">浅谈深拷贝、浅拷贝的区别【Vuex踩坑记录】</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/12/24/depthClone/" class="archive-article-date">
+  	<time datetime="2018-12-24T15:44:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-24</time>
+</a>
+        
+        
+      </header>
+    
+   
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vuex踩坑记录"><a href="#vuex踩坑记录" class="headerlink" title="vuex踩坑记录"></a>vuex踩坑记录</h1><p>前一阵子在使用Vuex的时候，有这样一个报错。<br><img src="/2018/12/24/depthClone/img1.png" alt="vuexError" title="vuexError"></p>
+<pre><code>Do not mutate vuex store state outside mutation handlers.
+直译过来就是不要在突变处理程序之外改变vuex存储状态。
+</code></pre><p>我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这个错误。<br>我在已知这点的情况下，先slice()了vuex里的数据，再进行使用，可还是报了相同的错误。后来查了下资料，才发现是深浅拷贝的问题，下面就来浅谈一下深拷贝的区别，以及总结几种不同的深浅拷贝方法。<br></p>
+        
+      
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">categories</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vuex</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/24/depthClone/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+   </span> -->
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+ <!-- 目录内容 -->
+ 
+<!-- 目录内容结束 -->
   
     <article id="post-musicLinks" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
@@ -433,96 +526,6 @@
  
 <!-- 目录内容结束 -->
   
-    <article id="post-My-New-Post.1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/07/My-New-Post.1/">博客测试</a>
-    </h1>
-  
-
-
-        
-        <a href="/2018/11/07/My-New-Post.1/" class="archive-article-date">
-  	<time datetime="2018-11-07T15:44:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-07</time>
-</a>
-        
-        
-      </header>
-    
-   
-    <div class="article-entry" itemprop="articleBody">
-      
-        欢迎来到我的博客，本文需要输入密码查看。
-        
-      
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">categories</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/07/My-New-Post.1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-  <!-- <span id="busuanzi_container_page_pv">
-      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-   </span> -->
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
- <!-- 目录内容 -->
- 
-<!-- 目录内容结束 -->
-  
     <article id="post-My-New-Post" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -574,6 +577,92 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/11/07/My-New-Post/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+   </span> -->
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+ <!-- 目录内容 -->
+ 
+<!-- 目录内容结束 -->
+  
+    <article id="post-My-New-Post.1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/07/My-New-Post.1/">博客测试</a>
+    </h1>
+  
+
+
+        
+        <a href="/2018/11/07/My-New-Post.1/" class="archive-article-date">
+  	<time datetime="2018-11-07T15:44:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-07</time>
+</a>
+        
+        
+      </header>
+    
+   
+    <div class="article-entry" itemprop="articleBody">
+      
+        欢迎来到我的博客，本文需要输入密码查看。
+        
+      
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/07/My-New-Post.1/">展开全文 >></a>
         </p>
       
 
@@ -735,7 +824,7 @@ setInterval("createtime()",250);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -744,6 +833,10 @@ setInterval("createtime()",250);
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">element-ui</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vuex</a>
               </li>
             
             <div class="clearfix"></div>
