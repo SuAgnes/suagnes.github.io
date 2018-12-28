@@ -140,3 +140,6 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
     color: #7f6cd6f7;
     color: #968accf7;
 }
+.article-entry blockquote{
+border-left:5px solid #f3e5ee;
+}
