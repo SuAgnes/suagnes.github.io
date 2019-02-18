@@ -137,8 +137,9 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
     font-size: 13px;
 }
 .article-entry pre code{
-    color: #7f6cd6f7;
-    color: #968accf7;
+    /* color: #7f6cd6f7; */
+    /* color: #968accf7; */
+    color: #968acc;
 }
 .article-entry blockquote{
 border-left:5px solid #f3e5ee;
