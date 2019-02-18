@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://suagnes.github.io">
-  <title>node | Rachel Song</title>
+  <title>git常规操作【初始化/提交代码/撤销/删除/合并分支/储存变更】 | Rachel Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="node">
-<meta property="og:url" content="http://suagnes.github.io/tags/index.html">
+  <meta name="description" content="由于公司一直用的SVN对项目进行版本管理，所以一直也没怎么接触过git。虽然我之前有使用码云私有仓库管理代码，但是我对git的操作还停留在git add . git commit -m上。直到最近听说github的私有仓库免费了，所以我又抽时间看了下git的基本操作(免费使我进步，哈哈哈~~)，下面是我整理的笔记，希望对你有帮助。">
+<meta name="keywords" content="notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常规操作【初始化&#x2F;提交代码&#x2F;撤销&#x2F;删除&#x2F;合并分支&#x2F;储存变更】">
+<meta property="og:url" content="http://suagnes.github.io/2019/02/18/gitOrder/index.html">
 <meta property="og:site_name" content="Rachel Song">
+<meta property="og:description" content="由于公司一直用的SVN对项目进行版本管理，所以一直也没怎么接触过git。虽然我之前有使用码云私有仓库管理代码，但是我对git的操作还停留在git add . git commit -m上。直到最近听说github的私有仓库免费了，所以我又抽时间看了下git的基本操作(免费使我进步，哈哈哈~~)，下面是我整理的笔记，希望对你有帮助。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-08T05:09:51.966Z">
+<meta property="og:updated_time" content="2019-02-18T15:48:21.353Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node">
+<meta name="twitter:title" content="git常规操作【初始化&#x2F;提交代码&#x2F;撤销&#x2F;删除&#x2F;合并分支&#x2F;储存变更】">
+<meta name="twitter:description" content="由于公司一直用的SVN对项目进行版本管理，所以一直也没怎么接触过git。虽然我之前有使用码云私有仓库管理代码，但是我对git的操作还停留在git add . git commit -m上。直到最近听说github的私有仓库免费了，所以我又抽时间看了下git的基本操作(免费使我进步，哈哈哈~~)，下面是我整理的笔记，希望对你有帮助。">
   
     <link rel="alternative" href="/atom.xml" title="Rachel Song" type="application/atom+xml">
   
@@ -158,21 +162,21 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope="" itemprop="blogPost">
+            <article id="post-gitOrder" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      node
+      git常规操作【初始化/提交代码/撤销/删除/合并分支/储存变更】
     </h1>
   
 
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2018-12-04T14:55:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
+        <a href="/2019/02/18/gitOrder/" class="archive-article-date">
+  	<time datetime="2019-02-18T14:58:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-18</time>
 </a>
         
         
@@ -186,7 +190,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">0字</span>
+        <span class="post-count">2.4k字</span>
       </span>
     </span> -->
     <span class="post-time">
@@ -194,7 +198,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">8分</span>
       </span>
     </span>
 </div>
@@ -217,7 +221,33 @@
    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>由于公司一直用的SVN对项目进行版本管理，所以一直也没怎么接触过git。虽然我之前有使用码云私有仓库管理代码，但是我对git的操作还停留在git add . git commit -m上。直到最近听说github的私有仓库免费了，所以我又抽时间看了下git的基本操作(免费使我进步，哈哈哈~~)，下面是我整理的笔记，希望对你有帮助。<br><a id="more"></a></p>
+<h1 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h1><h2 id="初始化git"><a href="#初始化git" class="headerlink" title="初始化git"></a>初始化git</h2><p>git init 初始化</p>
+<h2 id="检查状态"><a href="#检查状态" class="headerlink" title="检查状态"></a>检查状态</h2><p>git status 检测文件状态(有没有被追踪Untracked)<br>    提交到版本库的文件不会显示在git status里</p>
+<h3 id="GIT四种状态"><a href="#GIT四种状态" class="headerlink" title="GIT四种状态"></a>GIT四种状态</h3><p>untracked 未被追踪<br>modified  表示工作区修改了某个文件但是没有添加到暂存区<br>staged    表示把工作区修改的文件添加到了暂存区但是没有比较到版本库<br>Commited  表示数据被安全的存储在本地库中</p>
+<h3 id="GIT三层结构"><a href="#GIT三层结构" class="headerlink" title="GIT三层结构"></a>GIT三层结构</h3><p>working directory 工作区<br>staging index 暂存区<br>git directory(Repository) 版本库</p>
+<h2 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h2><p>git add fileName 追踪 (从工作区添加到暂存区)<br>git add . 追踪全部本地文件到暂存区<br>git commit -m ‘描述’ 提交到版本库</p>
+<h2 id="告诉git使用者的身份"><a href="#告诉git使用者的身份" class="headerlink" title="告诉git使用者的身份"></a>告诉git使用者的身份</h2><p>git config —global user.name yourName<br>git config —global user.email yourEmail</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>git config —list 查看git配置情况<br>git log 查看提交信息(提交人/邮箱)<br>git help 命令名 (例git help add):将弹出想要查找的命令的文档</p>
+<h1 id="撤销部分"><a href="#撤销部分" class="headerlink" title="撤销部分"></a>撤销部分</h1><p>git add . + git commit -m ‘msg == git commit -am ‘msg’</p>
+<p>例如: git commit -m ‘versions 1.0’ 提交到版本库<br>这时候不能使用 ‘versions 1.0’ 再次提交了 如果还想用这个名字的话 使用↓↓<br>git commit—amend 撤销上一次的提交,并将暂存区的文件重新提交 也可以通过这个命令改变版本描述(不改变暂存区内容的情况下)</p>
+<p>git checkout — fileName 编辑器的文件恢复成了修改前的样子(最后一次提交)<br>git checkout — . 撤销恢复全部文件</p>
+<p>git reset HEAD fileName 撤销提交到暂存区 （这的HEAD为头指针）<br>此处HEAD也可以换为版本号(将相应版本里的文件拉回到暂存区)<br>这一步不会影响工作区↑↑,想工作区恢复 需要使用git checkout — fileName<br>Unstaged changes after reset(将改变撤销暂存);</p>
+<p>可以通过git log 查看各种版本的版本号 然后通过版本号恢复到某个版本(这也会改变HEAD的指向)<br>git reset 版本号(commit后面的) 文件名;<br>再用git checkout — fileName 拉回来</p>
+<h1 id="删除部分"><a href="#删除部分" class="headerlink" title="删除部分"></a>删除部分</h1><p>git rm fileName:此步操作会把工作区的文件连同暂存区的文件一起被删除</p>
+<p>当工作区的文件或者暂存区的文件被修改后,想进行git rm 操作,git会禁止我们删除,起到了一个防止误删除的作用。<br>如果想要保留工作区的文件 那么就要用git rm —cached 文件名 来仅仅删除暂存区的文件<br>git rm — cached fileName 在不小心将不需要追踪的文件添加到暂存区后,想删除暂存区的文件但是不想删除工作区的文件很有用<br>git rm -f fileName 同时删除工作区和暂存区的文件<br>mv fileName newFileName 本地(工作区)重命名<br>mv fileName newFileName 工作区和暂存区都重命名</p>
+<h1 id="git指针概念"><a href="#git指针概念" class="headerlink" title="git指针概念"></a>git指针概念</h1><p>Git指针<br>当提交一个版本的时候,就会有一个版本号(V1),这时候有两个指针指向这个版本,一个是master(当前分支指针),一个是HEAD(指向当前分支的最后一个版本)<br>当提交了一个新的版本(V2),master指针和HEAD指针都指向了最新一次的提交(V2),V2有一个指针指向V1。这的指针是指（文件中有一块地方保存着其他文件的地址），调用V2的时候可以直接通过V2找到V1的地址，从而调用V1，以达到方便的访问V1的目的，以此类推。<br>如果在V2版本上创建了一个分支（D1）的时候，master分支指针依旧会指向V2，新的D1分支指针会指向新的D1分支,当切换到D1分支的时候,head指针会切换到D1上,此时的D1还有一个指针指向V2。<br>修改D1分支的时候,D1和head指针也会以此类推到D2。当从D2合并分支到V2的时候，会形成V3分支，V3分支既指向V2分支，又指向D2分支。此时HEAD和master指针指向V3分支。</p>
+<h1 id="分支部分"><a href="#分支部分" class="headerlink" title="分支部分"></a>分支部分</h1><p>git branch 查看本地分支<br>git branch -a 查看远程分支<br>git branch branchName 创建新分支<br>git checkout branchName 切换分支<br>git branch -d branchName 删除分支 (此操作必须保证当前的分支非想要删除的那个分支)<br>git branch -m branchName newBranchName 修改分支名<br>git checkout -b branchName 创建分支并切换分支</p>
+<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><p>首先切换到主分支（master）<br>git merge branchName 合并分支<br>这时候如果branch和master在相同位置有不同的修改,也就是发现了冲突的时候,git会抛出一个让我们来手动解决冲突的错误↓↓。<br>automatic merge failed:fix conflicts and then commit result.(自动合并失败:修复冲突，然后提交结果。)<br>&lt;&lt;<head到===之间是master分支的内容 =="=到">&gt;&gt;branchName 是branchName分支的内容<br>然后重新git commit -am ‘msg’ 提交到暂存区及版本库;</head到===之间是master分支的内容></p>
+<p>git diff 比较差异(默认比较工作区和暂存区文件的差异) 如果没有差异是不会有任何展示的<br>git diff —staged 比较暂存区与版本库之间的差异<br>git diff 还可以比较同一个分支中两个不同的版本之间的差异(在版本回退时非常有用)<br>版本hash值 最少选择4个 git默认选择7个 建议尽量选择8-10个 这样才能保证唯一性<br>git diff branchName 还可以比较两个分支之间的差异</p>
+<h1 id="储存变更部分"><a href="#储存变更部分" class="headerlink" title="储存变更部分"></a>储存变更部分</h1><p>比如在branch分支上进行修改后,切换到master分支,会报一个<br>please commit your changes or stash them before you switch branches;(请在切换分支之前提交更改或将其隐藏)的错误,我们使用<br>git stash 暂存工作区的修改,然后git会帮我们自动切换到修改前的状态<br>这时切换分支就不会报错了,因为git在进行分支切换的时候,主要改变的是版本库,当工作区有改变的时候,会直接将工作区的改变覆盖到另外一个分支上,从而影响另外一个分支。如果我们使用git stash进行封存,git就会自动将工作区的改变撤销掉,回到修改前的状态(上一次提交后的状态)。<br>git stash list 查看当前保存了哪些本地文件<br>git stash apply stash@{0} 返回之前用git stash封存的改变<br>stash@{0} 里面的0根据提交git stash的次数以此类推<br>git stash pop stash@{0} 拉回到暂存区和本地<br>此时再执行 git stash list 查看封存的文件时 stash@{0}不见了<br>也就是说 git stash pop stash@{0} 是在git stash apply stash@{0}的基础上,增加了一个删除命令。<br>也就是说，返回的同时，删除git stash中的这个文件的命令。<br>git stash drop stash@{0} 删除封存的修改。<br>综上 git stash pop stash@{0} = git stash apply stash@{0} + git stash drop stash@{0}</p>
+<h1 id="使用远程仓库管理代码-github-码云"><a href="#使用远程仓库管理代码-github-码云" class="headerlink" title="使用远程仓库管理代码(github/码云)"></a>使用远程仓库管理代码(github/码云)</h1><p>git push 远程仓库地址 (分支:可不填) :推送到远程仓库<br>git pull<br>如果使用ssh地址<br>在管理员账户使用 ssh-keygen 生成密钥 文档后缀为File的为私钥 后缀为PUB(public的缩写) File为公钥<br>然后点击github→setting→SSH→New SSH key→输入标题/添加公钥;<br>此时就可以用SSH地址拉取了</p>
+<p>推代码到远程仓库:方法1: git push git@github.com:仓库名称(name/xxx.com.git);<br>                方法2: git push 仓库地址(<a href="https://github.com/name/xxx.com.git" target="_blank" rel="noopener">https://github.com/name/xxx.com.git</a>)<br>                方法2: git remote add 取一个仓库名(通常使用origin) git@github.com:仓库名称(name/xxx.com.git);</p>
+<p>git remote -v 查看添加的远程仓库<br>然后使用 git push origin master 推送到远程仓库</p>
+<p>git pull 仓库名 分支名(master) 拉取到本地</p>
+<h1 id="让git不追踪指定文件"><a href="#让git不追踪指定文件" class="headerlink" title="让git不追踪指定文件"></a>让git不追踪指定文件</h1><p>如果有一些文件不想让git对它追踪<br>touch .gitignore : 在项目目录下建立一个 .gitignore文件<br>vim .gitignore 编辑这个文件<br>然后把想忽略的文件添加到cmd命令行<br>或者可以 index.* :忽略所有以index.为开头的文件(支持glob规则)<br>也可以在里面加上.gitignore 让他忽略.gitignore文件<br>glob规则:<br>    (&#42;号)匹配零或多个任意字符<br>    [abc]匹配任何一个列在方括号中的字符<br>    (?号)只匹配一个任意字符<br>    [0-9]/[a-z]匹配范围</p>
+<p>已经长传到暂存区/版本库的想忽略的文件,可以:<br>git rm index.html —cached 删除暂存区的文件<br>任何再提交 git commit -m ‘msg 提交↑的操作:这时,提交的还是暂存区的文件,本地仍然是改变这个index.html,这个改变并没有提交到暂存区,更没有到版本库<br>只有将暂存区里相应文件删除后,忽略才生效 ~</p>
+
       
       
       
@@ -228,7 +258,7 @@
           
           <br>
           <strong>本文链接：</strong>
-          http://suagnes.github.io/tags/
+          http://suagnes.github.io/2019/02/18/gitOrder/
           <br>
           <strong>版权声明：</strong>
           本作品采用
@@ -265,6 +295,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -315,7 +356,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://suagnes.github.io/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://suagnes.github.io/2019/02/18/gitOrder/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -330,6 +371,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/28/N1-ktwr-ktgt-gtr/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">「N1语法」かたがた、かたわら、がてら的区别</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -364,8 +415,8 @@
 <script src="https://billts.site/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  // id: "http://suagnes.github.io/tags/index.html",
-  id: 'Tue Dec 04 2018 22:55:39 GMT+0800',
+  // id: "http://suagnes.github.io/2019/02/18/gitOrder/",
+  id: 'Mon Feb 18 2019 22:58:09 GMT+0800',
   owner: 'suagnes',
   repo: 'suagnes.github.io',
   oauth: {
@@ -380,6 +431,30 @@ gitment.render('gitment-ctn')
 
  <!-- 目录内容 -->
  
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+  <div id="toc-article" class="toc-article">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础部分"><span class="toc-number">1.</span> <span class="toc-text">基础部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化git"><span class="toc-number">1.1.</span> <span class="toc-text">初始化git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查状态"><span class="toc-number">1.2.</span> <span class="toc-text">检查状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GIT四种状态"><span class="toc-number">1.2.1.</span> <span class="toc-text">GIT四种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GIT三层结构"><span class="toc-number">1.2.2.</span> <span class="toc-text">GIT三层结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交代码"><span class="toc-number">1.3.</span> <span class="toc-text">提交代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#告诉git使用者的身份"><span class="toc-number">1.4.</span> <span class="toc-text">告诉git使用者的身份</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">1.5.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#撤销部分"><span class="toc-number">2.</span> <span class="toc-text">撤销部分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#删除部分"><span class="toc-number">3.</span> <span class="toc-text">删除部分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git指针概念"><span class="toc-number">4.</span> <span class="toc-text">git指针概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分支部分"><span class="toc-number">5.</span> <span class="toc-text">分支部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#合并分支"><span class="toc-number">5.1.</span> <span class="toc-text">合并分支</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#储存变更部分"><span class="toc-number">6.</span> <span class="toc-text">储存变更部分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用远程仓库管理代码-github-码云"><span class="toc-number">7.</span> <span class="toc-text">使用远程仓库管理代码(github/码云)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#让git不追踪指定文件"><span class="toc-number">8.</span> <span class="toc-text">让git不追踪指定文件</span></a></li></ol>
+       </div>
+ <script type="text/javascript">
+  function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+  function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+ </script>
+    
 <!-- 目录内容结束 -->
           </div>
         </div>
@@ -429,7 +504,7 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

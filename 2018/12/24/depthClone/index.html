@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://suagnes.github.io/2018/12/24/depthClone/img1.png">
 <meta property="og:image" content="http://suagnes.github.io/2018/12/24/depthClone/img2.jpg">
 <meta property="og:image" content="http://suagnes.github.io/2018/12/24/depthClone/img3.jpeg">
-<meta property="og:updated_time" content="2018-12-24T17:08:51.966Z">
+<meta property="og:updated_time" content="2018-12-28T16:47:25.089Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈深拷贝、浅拷贝的区别【Vuex踩坑记录】">
 <meta name="twitter:description" content="vuex踩坑记录前一阵子在使用Vuex的时候，有这样一个报错。 Do not mutate vuex store state outside mutation handlers. 直译过来就是不要在突变处理程序之外改变vuex存储状态。 我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这">
@@ -228,10 +228,10 @@
         <h1 id="vuex踩坑记录"><a href="#vuex踩坑记录" class="headerlink" title="vuex踩坑记录"></a>vuex踩坑记录</h1><p>前一阵子在使用Vuex的时候，有这样一个报错。<br><img src="/2018/12/24/depthClone/img1.png" alt="vuexError" title="vuexError"></p>
 <pre><code>Do not mutate vuex store state outside mutation handlers.
 直译过来就是不要在突变处理程序之外改变vuex存储状态。
-</code></pre><p>我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这个错误。<br>我在已知这点的情况下，先slice()了vuex里的数据，再进行使用，可还是报了相同的错误。后来查了下资料，才发现是深浅拷贝的问题，下面就来浅谈一下深拷贝的区别，以及总结几种不同的深浅拷贝方法。<br><a id="more"></a></p>
+</code></pre><p>我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这个错误。<br>我在已知这点的情况下，先slice()了vuex里的数据，再进行使用，可还是报了相同的错误。后来查了下资料，才发现是深浅拷贝的问题，下面就来浅谈一下深浅拷贝的区别，以及总结几种不同的深浅拷贝方法。<br><a id="more"></a></p>
 <h1 id="深浅拷贝介绍"><a href="#深浅拷贝介绍" class="headerlink" title="深浅拷贝介绍"></a>深浅拷贝介绍</h1><p>在很多编程语言中（例如Java、JavaScript、C++），不同的数据类型，对应着不同的内存存储方式，基本数据类型通常保存在栈内存中，而引用类型仅仅是在栈内存中保存了一个指向堆内存的地址，通过在栈内存中保存的地址，去访问到保存在堆内存中的值。<br>我们所说的浅拷贝，正是拷贝了栈内存中的引用类型数据的指针，而深拷贝，则是在拷贝数据内容的同时，生成新的指针，在堆内存中开辟自己的空间。<br>我用大白话来解释一下，所谓的浅拷贝，比方说我们有b这样一个对象，我们用a复制了b，当我们改变b的时候观察a会不会随之变化，如果a也变了，那就是浅拷贝（因为只复制了栈内存中的指针，它们指向的还是相同的堆内存空间），如果a没变，那证明a和b在堆内存中分别占用了不同的空间，也就是深拷贝了。</p>
 <h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//我在此处定义了一个变量aVuexData，aVuexData是一个包含三个对象的数组。</span></span><br><span class="line"><span class="keyword">let</span> aVuexData=[&#123;<span class="attr">name</span>:<span class="string">'Jack'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'Tom'</span>,<span class="attr">age</span>:<span class="number">20</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'David'</span>,<span class="attr">age</span>:<span class="number">15</span>&#125;];</span><br><span class="line"><span class="keyword">let</span> arr=aVuexData;</span><br><span class="line"><span class="built_in">console</span>.log(arr==aVuexData);<span class="comment">//true,证明arr与aVuexData的指针相同，它们指向堆内存中相同的数据。</span></span><br></pre></td></tr></table></figure>
-<p>紧接着我们修改arr。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[<span class="number">0</span>].name=<span class="string">'Hank'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aVuexData[<span class="number">0</span>].name==‘Hank’);<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>紧接着我们修改arr。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[<span class="number">0</span>].name=<span class="string">'Hank'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aVuexData[<span class="number">0</span>].name==<span class="string">'Hank'</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
 <p>aVuexData[0].name==’Hank’为true，证明aVuexData[0]的name值由原先的Jack变成了Hank，但我们没有对aVuexData做任何操作，aVuexData是随着arr改变而改变了，这是显而易见的浅拷贝。</p>
 <h3 id="slice-拷贝"><a href="#slice-拷贝" class="headerlink" title="slice()拷贝"></a>slice()拷贝</h3><p>我们知道<a href="http://www.w3school.com.cn/jsref/jsref_slice_array.asp" title="slice()方法" target="_blank" rel="noopener">slice()方法</a>可从已有的数组中返回选定的元素，它的返回值是一个新的数组。<br>这样看来，slice()似乎可以帮我们达到深拷贝的目的，但它并不可靠，这也正是我在vuex里报错的原因，下面来看一个例子。<br>接着使用上面的aVuexData。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arrNew=aVuexData.slice();</span><br><span class="line"><span class="built_in">console</span>.log(arrNew==aVuexData);<span class="comment">//false，也就是说，此处的arrNew与aVuexData指向了不同的指针地址，即使数据相同，它们也各自在堆内存中拥有着自己的一席之地。</span></span><br><span class="line"><span class="built_in">console</span>.log(arrNew[<span class="number">0</span>]==aVuexData[<span class="number">0</span>]);<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
 <p>注意，这时候打印arrNew[0]与aVuexData[0]是否相等，返回的结果是true，证明它们的指针还是指向同一个堆内存地址，也就是说，我们虽然深拷贝了外层的数组，但并没有对数组中的引用类型数据进行深拷贝——它依旧是仅仅拷贝了指针地址，依旧是一个浅拷贝。slice()并没有让内层的引用类型数据开辟新的堆内存空间，这也正是vuex报错的原因，我们在改变内层数据的时候，其实还是直接修改了在vuex的store里的数据，所以才会报错。</p>
@@ -477,7 +477,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<!-- <div class="footer-left">
-    		&copy; 2018 Rachel Song
+    		&copy; 2019 Rachel Song
     	</div> -->
       	<div class="footer-right">
       		<!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten -->
@@ -487,7 +487,7 @@ gitment.render('gitment-ctn')
 	<!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
 	<div class="alignleft">
 			
-			&copy; 2018 Rachel Song
+			&copy; 2019 Rachel Song
 			
 		<!-- <span id="busuanzi_container_site_pv">
 				 <i class="fa fa-flag"></i>    你是第<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>个到访的小伙伴
@@ -505,7 +505,7 @@ gitment.render('gitment-ctn')
         mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
         seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
         snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+(dnum-266)+" 天 "; 
         document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
     } 
 setInterval("createtime()",250);
@@ -584,10 +584,6 @@ setInterval("createtime()",250);
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">categories</a>
               </li>
              
@@ -596,7 +592,15 @@ setInterval("createtime()",250);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nodes</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">N1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日语</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,26 +617,6 @@ setInterval("createtime()",250);
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">element-ui</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">notes１</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">notes２</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">notes３</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">N1</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日语</a>
               </li>
             
             <div class="clearfix"></div>

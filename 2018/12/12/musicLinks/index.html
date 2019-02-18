@@ -470,7 +470,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<!-- <div class="footer-left">
-    		&copy; 2018 Rachel Song
+    		&copy; 2019 Rachel Song
     	</div> -->
       	<div class="footer-right">
       		<!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten -->
@@ -480,7 +480,7 @@ gitment.render('gitment-ctn')
 	<!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
 	<div class="alignleft">
 			
-			&copy; 2018 Rachel Song
+			&copy; 2019 Rachel Song
 			
 		<!-- <span id="busuanzi_container_site_pv">
 				 <i class="fa fa-flag"></i>    你是第<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>个到访的小伙伴
@@ -498,7 +498,7 @@ gitment.render('gitment-ctn')
         mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
         seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
         snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+(dnum-266)+" 天 "; 
         document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
     } 
 setInterval("createtime()",250);
@@ -577,10 +577,6 @@ setInterval("createtime()",250);
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">categories</a>
               </li>
              
@@ -589,7 +585,15 @@ setInterval("createtime()",250);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nodes</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">N1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日语</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,26 +610,6 @@ setInterval("createtime()",250);
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">element-ui</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">notes１</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">notes２</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">notes３</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">N1</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日语</a>
               </li>
             
             <div class="clearfix"></div>

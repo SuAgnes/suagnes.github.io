@@ -190,7 +190,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">27字</span>
+        <span class="post-count">26字</span>
       </span>
     </span> -->
     <span class="post-time">
@@ -232,7 +232,7 @@
 <div id="decryptionError" style="display: none;">Incorrect Password!</div>
 <div id="noContentError" style="display: none;">No content to display!</div>
 <div id="encrypt-blog" style="display:none">
-U2FsdGVkX1+RhxoRNH0iTablPv/babuzn7Ua+BB224nI8Gdv7agHn3SomDxaNq3Q8uyQTs63tthCeVrogUna1dgVTgNqTPMCzfVDbXdzELzNTtDljM3+mv2KLzJYzUZg0AbhmfK1GlDNPOvkZUG4nB9buh5iFj3LPiuQ0eAl9J3g5y3QCR0YGNO9DzBTxrnwUG3JHL2Jwn6+lTnkG5ipDV3+mRNadFk7dKJAahD0Pf++eR5+Mx4YjKu/wXksC4S4OGXdnqgvEBYe5u0dy95LFHjjWKSS/vjWUjJgqiQh63T2xBmJ1v2xt2AztawWwUro
+U2FsdGVkX19rECYmq09q/+4Tgf7nQpH5DbszKRPJyQFm2dpcZzauHFc0Drd67KeZRH6f6Z9775zYQyiPH9q1AetM/NrAlqgy4r5MsQ33RHTs3zSVyUfZgWCSKAmMM93VLHYuFnZ+Fv9VkBE59Dmg92l8MBhCYi8RgNN8ZTD7eFUX+H2jgHleAk/L2qKj9nTYB3ehgJJtnYQQXfYh5Z7arB5aeA/b8zK1g4nZNa29c5HiDU8dw9+y/8B9CALtiNC0jEDBDhMDh96JxVaJyEuqbenBiOWQUYPFL5zHXqT5JX1LSFpJk+LfYjtrCq92qHXK
 </div>
 <script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
       
@@ -455,7 +455,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<!-- <div class="footer-left">
-    		&copy; 2018 Rachel Song
+    		&copy; 2019 Rachel Song
     	</div> -->
       	<div class="footer-right">
       		<!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten -->
@@ -465,7 +465,7 @@ gitment.render('gitment-ctn')
 	<!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
 	<div class="alignleft">
 			
-			&copy; 2018 Rachel Song
+			&copy; 2019 Rachel Song
 			
 		<!-- <span id="busuanzi_container_site_pv">
 				 <i class="fa fa-flag"></i>    你是第<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>个到访的小伙伴
@@ -483,7 +483,7 @@ gitment.render('gitment-ctn')
         mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
         seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
         snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+(dnum-266)+" 天 "; 
         document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
     } 
 setInterval("createtime()",250);
@@ -562,10 +562,6 @@ setInterval("createtime()",250);
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">categories</a>
               </li>
              
@@ -574,7 +570,15 @@ setInterval("createtime()",250);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nodes</a>
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">N1</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日语</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,26 +595,6 @@ setInterval("createtime()",250);
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">element-ui</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">notes１</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">notes２</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">notes３</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">N1</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日语</a>
               </li>
             
             <div class="clearfix"></div>
