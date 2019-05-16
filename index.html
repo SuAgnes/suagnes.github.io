@@ -159,6 +159,187 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-buildReact" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/15/buildReact/">yarn构建react项目</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/05/15/buildReact/" class="archive-article-date">
+  	<time datetime="2019-05-15T07:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
+</a>
+        
+        
+      </header>
+    
+   
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我个人比较喜好用yarn开发，速度比较快，并且还有许多优势，这边不做过多介绍。你如果习惯直接使用npm，可跳过这步，直接去安装react官方脚手架Create-react-app。<br></p>
+        
+      
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">categories</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/15/buildReact/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+   </span> -->
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+ <!-- 目录内容 -->
+ 
+<!-- 目录内容结束 -->
+  
+    <article id="post-react-redux" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/15/react-redux/">一步步带你入门Redux管理数据</a>
+    </h1>
+  
+
+
+        
+        <a href="/2019/05/15/react-redux/" class="archive-article-date">
+  	<time datetime="2019-05-15T05:26:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
+</a>
+        
+        
+      </header>
+    
+   
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一些闲话"><a href="#一些闲话" class="headerlink" title="一些闲话"></a>一些闲话</h1><p>&nbsp;<br>最近忙里偷闲学习了react。由于之前一直都是使用vue做项目，所以学习react的时候觉得既熟悉又陌生。<br>&nbsp;<br>熟悉是因为它和vue拥有许多相似的概念，包括都推崇组件化、都拥有’props’的概念、核心都是视图层框架等等。虽然react不像vue拥有那么多丰富的API，但是在我看来，正因为react本身没有过度的封装，再加上react的社区非常成熟与活跃，才使得react的开发灵活多变，相比起来，我觉得react更适合大型项目的开发，react的函数式变成也更容易实现前端自动化测试。<br>&nbsp;<br>尤大自己也说过vue从一开始的定位就是尽可能的降低前端开发的门槛，让更多的人能够更快地上手开发。所以学习起来，vue更加圆滑，而react相对陡峭。两者在我看来都是非常优秀的框架，没有高低之分，我们可以根据不同的开发情况选择不同的开发工具。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天主要是想写一下如何在react中管理数据。我会从搭建react项目开始，循序渐进，如果你对这其中的某些过程已经非常了解，可以在右侧的目录中跳过该章节，或者直接跳转<a href="#最终代码">最终代码</a>查看结果。<br>&nbsp;<br>在此之前，如果你还不了解该如何搭建react项目，请参考我的另一篇文章「<a href="/2019/05/15/buildReact/" title="yarn构建react项目">yarn构建react项目</a>」。<br></p>
+        
+      
+      
+      
+        <div class="declare" hidden="hidden"></div>
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">categories</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/15/react-redux/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+   </span> -->
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+ <!-- 目录内容 -->
+ 
+<!-- 目录内容结束 -->
+  
     <article id="post-gitOrder" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -386,7 +567,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vuex</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1034,6 +1215,10 @@ setInterval("createtime()",250);
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">element-ui</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -1192,5 +1377,5 @@ setInterval("createtime()",250);
   <!-- 代码块复制功能 -->
   <!-- <script type="text/javascript" src="/clipboard/clipboard.min.js"></script>  
   <script type="text/javascript" src="/clipboard/clipboard-use.js"></script> -->
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":50,"height":100,"hOffset":0,"vOffset":7},"mobile":{"show":false,"scale":0.3,"motion":true},"react":{"opacityDefault":1,"opacityOnHover":0.1},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":50,"height":100,"hOffset":14,"vOffset":41},"mobile":{"show":false,"scale":0.3,"motion":true},"react":{"opacityDefault":1,"opacityOnHover":0.1},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
