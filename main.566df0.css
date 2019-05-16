@@ -142,5 +142,8 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
     color: #968acc;
 }
 .article-entry blockquote{
-border-left:5px solid #f3e5ee;
+    border-left:5px solid #f3e5ee;
+}
+.article {
+    width: 78% !important;
 }
