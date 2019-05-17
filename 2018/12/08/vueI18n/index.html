@@ -5,27 +5,27 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://suagnes.github.io">
+  <link rel="dns-prefetch" href="http://suagnes.com">
   <title>vue+vue-i18n搭建国际化网站【兼容Element-UI、动态切换css】 | Rachel Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="&amp;nbsp;最近因为雾霾很厉害，所以发烧了在家养病，想着难得有空，正好趁机整理一下以前在项目中遇到过的问题及需求。今天想来写一下之前为项目搭建的国际化（i18n）功能，由于之前项目主要是使用的Vue+Element-UI，所以本文章中分别有vue-i18n和兼容element-ui的vue-i18n两种写法，大家可以按需参考。">
 <meta name="keywords" content="categories,vue,i18n,element-ui">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue+vue-i18n搭建国际化网站【兼容Element-UI、动态切换css】">
-<meta property="og:url" content="http://suagnes.github.io/2018/12/08/vueI18n/index.html">
+<meta property="og:url" content="http://suagnes.com/2018/12/08/vueI18n/index.html">
 <meta property="og:site_name" content="Rachel Song">
 <meta property="og:description" content="&amp;nbsp;最近因为雾霾很厉害，所以发烧了在家养病，想着难得有空，正好趁机整理一下以前在项目中遇到过的问题及需求。今天想来写一下之前为项目搭建的国际化（i18n）功能，由于之前项目主要是使用的Vue+Element-UI，所以本文章中分别有vue-i18n和兼容element-ui的vue-i18n两种写法，大家可以按需参考。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img1.jpg">
-<meta property="og:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img2.jpg">
-<meta property="og:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img3.jpg">
-<meta property="og:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img4.jpg">
-<meta property="og:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img5.jpeg">
+<meta property="og:image" content="http://suagnes.com/2018/12/08/vueI18n/img1.jpg">
+<meta property="og:image" content="http://suagnes.com/2018/12/08/vueI18n/img2.jpg">
+<meta property="og:image" content="http://suagnes.com/2018/12/08/vueI18n/img3.jpg">
+<meta property="og:image" content="http://suagnes.com/2018/12/08/vueI18n/img4.jpg">
+<meta property="og:image" content="http://suagnes.com/2018/12/08/vueI18n/img5.jpeg">
 <meta property="og:updated_time" content="2018-12-09T03:47:18.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue+vue-i18n搭建国际化网站【兼容Element-UI、动态切换css】">
 <meta name="twitter:description" content="&amp;nbsp;最近因为雾霾很厉害，所以发烧了在家养病，想着难得有空，正好趁机整理一下以前在项目中遇到过的问题及需求。今天想来写一下之前为项目搭建的国际化（i18n）功能，由于之前项目主要是使用的Vue+Element-UI，所以本文章中分别有vue-i18n和兼容element-ui的vue-i18n两种写法，大家可以按需参考。">
-<meta name="twitter:image" content="http://suagnes.github.io/2018/12/08/vueI18n/img1.jpg">
+<meta name="twitter:image" content="http://suagnes.com/2018/12/08/vueI18n/img1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Rachel Song" type="application/atom+xml">
   
@@ -92,9 +92,9 @@
 				
 					<a class="github" target="_blank" href="https://github.com/suagnes" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="https://weibo.com/u/3786540383" title="weibo"><i class="icon-weibo"></i></a>
-		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/song-yu-qing-75/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="mail" target="_blank" href="/suagnes@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 			<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=150 height=52 src="//music.163.com/outchain/player?type=2&id=418708818&auto=0&height=32"></iframe> -->
@@ -138,9 +138,9 @@
 					
 						<a class="github" target="_blank" href="https://github.com/suagnes" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="https://weibo.com/u/3786540383" title="weibo"><i class="icon-weibo"></i></a>
-			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/song-yu-qing-75/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="mail" target="_blank" href="/suagnes@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -269,7 +269,7 @@
           
           <br>
           <strong>本文链接：</strong>
-          http://suagnes.github.io/2018/12/08/vueI18n/
+          http://suagnes.com/2018/12/08/vueI18n/
           <br>
           <strong>版权声明：</strong>
           本作品采用
@@ -384,7 +384,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://suagnes.github.io/2018/12/08/vueI18n/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://suagnes.com/2018/12/08/vueI18n/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -452,7 +452,7 @@
 <script src="https://billts.site/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  // id: "http://suagnes.github.io/2018/12/08/vueI18n/",
+  // id: "http://suagnes.com/2018/12/08/vueI18n/",
   id: 'Sat Dec 08 2018 17:19:15 GMT+0800',
   owner: 'suagnes',
   repo: 'suagnes.github.io',
