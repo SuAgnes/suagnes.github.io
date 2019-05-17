@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://suagnes.com/2019/05/15/react-redux/</loc>
+    <loc>http://www.suagnes.com/2018/11/07/My-New-Post/</loc>
+    <lastmod>2019-05-17</lastmod>
+  </url>  <url>
+    <loc>http://www.suagnes.com/2019/05/15/react-redux/</loc>
     <lastmod>2019-05-16</lastmod>
   </url>  <url>
-    <loc>http://suagnes.com/2019/05/15/buildReact/</loc>
+    <loc>http://www.suagnes.com/2019/05/15/buildReact/</loc>
     <lastmod>2019-05-16</lastmod>
   </url>  <url>
-    <loc>http://suagnes.com/2018/12/24/depthClone/</loc>
+    <loc>http://www.suagnes.com/2018/12/24/depthClone/</loc>
     <lastmod>2019-05-15</lastmod>
   </url>  <url>
-    <loc>http://suagnes.com/2019/02/18/gitOrder/</loc>
+    <loc>http://www.suagnes.com/2019/02/18/gitOrder/</loc>
     <lastmod>2019-02-18</lastmod>
   </url>  <url>
-    <loc>http://suagnes.com/2018/12/28/N1-ktwr-ktgt-gtr/</loc>
+    <loc>http://www.suagnes.com/2018/12/28/N1-ktwr-ktgt-gtr/</loc>
     <lastmod>2018-12-29</lastmod>
   </url>  <url>
-    <loc>http://suagnes.com/2018/11/07/My-New-Post.1/</loc>
+    <loc>http://www.suagnes.com/2018/11/07/My-New-Post.1/</loc>
     <lastmod>2018-12-19</lastmod>
   </url>  <url>
-    <loc>http://suagnes.com/2018/12/08/BuildProjectsVue/</loc>
+    <loc>http://www.suagnes.com/2018/12/08/BuildProjectsVue/</loc>
     <lastmod>2018-12-19</lastmod>
   </url>  <url>
-    <loc>http://suagnes.com/2018/12/12/musicLinks/</loc>
+    <loc>http://www.suagnes.com/2018/12/12/musicLinks/</loc>
     <lastmod>2018-12-19</lastmod>
   </url>  <url>
-    <loc>http://suagnes.com/2018/12/08/vueI18n/</loc>
+    <loc>http://www.suagnes.com/2018/12/08/vueI18n/</loc>
     <lastmod>2018-12-09</lastmod>
-  </url>  <url>
-    <loc>http://suagnes.com/2018/11/07/My-New-Post/</loc>
-    <lastmod>2018-12-08</lastmod>
   </url>
 </urlset>
