@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Rachel Song">
 <meta property="og:description" content="由于公司一直用的SVN对项目进行版本管理，所以一直也没怎么接触过git。虽然我之前有使用码云私有仓库管理代码，但是我对git的操作还停留在git add . git commit -m上。直到最近听说github的私有仓库免费了，所以我又抽时间看了下git的基本操作(免费使我进步，哈哈哈~~)，下面是我整理的笔记，希望对你有帮助。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-18T15:48:21.353Z">
+<meta property="og:updated_time" content="2019-05-20T18:44:04.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git常规操作【初始化&#x2F;提交代码&#x2F;撤销&#x2F;删除&#x2F;合并分支&#x2F;储存变更】">
 <meta name="twitter:description" content="由于公司一直用的SVN对项目进行版本管理，所以一直也没怎么接触过git。虽然我之前有使用码云私有仓库管理代码，但是我对git的操作还停留在git add . git commit -m上。直到最近听说github的私有仓库免费了，所以我又抽时间看了下git的基本操作(免费使我进步，哈哈哈~~)，下面是我整理的笔记，希望对你有帮助。">
@@ -102,7 +102,7 @@
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/song-yu-qing-75/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="mail" target="_blank" href="mailto:suagnes@163.com" title="mail"><i class="icon-mail"></i></a>
+					<a class="mail" target="_blank" href="mailto:rachellssr@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 			<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=150 height=52 src="//music.163.com/outchain/player?type=2&id=418708818&auto=0&height=32"></iframe> -->
@@ -148,7 +148,7 @@
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/song-yu-qing-75/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="mail" target="_blank" href="mailto:suagnes@163.com" title="mail"><i class="icon-mail"></i></a>
+						<a class="mail" target="_blank" href="mailto:rachellssr@gmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -256,7 +256,7 @@
 <p>git diff 比较差异(默认比较工作区和暂存区文件的差异) 如果没有差异是不会有任何展示的<br>git diff —staged 比较暂存区与版本库之间的差异<br>git diff 还可以比较同一个分支中两个不同的版本之间的差异(在版本回退时非常有用)<br>版本hash值 最少选择4个 git默认选择7个 建议尽量选择8-10个 这样才能保证唯一性<br>git diff branchName 还可以比较两个分支之间的差异</p>
 <h1 id="储存变更部分"><a href="#储存变更部分" class="headerlink" title="储存变更部分"></a>储存变更部分</h1><p>比如在branch分支上进行修改后,切换到master分支,会报一个<br>please commit your changes or stash them before you switch branches;(请在切换分支之前提交更改或将其隐藏)的错误,我们使用<br>git stash 暂存工作区的修改,然后git会帮我们自动切换到修改前的状态<br>这时切换分支就不会报错了,因为git在进行分支切换的时候,主要改变的是版本库,当工作区有改变的时候,会直接将工作区的改变覆盖到另外一个分支上,从而影响另外一个分支。如果我们使用git stash进行封存,git就会自动将工作区的改变撤销掉,回到修改前的状态(上一次提交后的状态)。<br>git stash list 查看当前保存了哪些本地文件<br>git stash apply stash@{0} 返回之前用git stash封存的改变<br>stash@{0} 里面的0根据提交git stash的次数以此类推<br>git stash pop stash@{0} 拉回到暂存区和本地<br>此时再执行 git stash list 查看封存的文件时 stash@{0}不见了<br>也就是说 git stash pop stash@{0} 是在git stash apply stash@{0}的基础上,增加了一个删除命令。<br>也就是说，返回的同时，删除git stash中的这个文件的命令。<br>git stash drop stash@{0} 删除封存的修改。<br>综上 git stash pop stash@{0} = git stash apply stash@{0} + git stash drop stash@{0}</p>
 <h1 id="使用远程仓库管理代码-github-码云"><a href="#使用远程仓库管理代码-github-码云" class="headerlink" title="使用远程仓库管理代码(github/码云)"></a>使用远程仓库管理代码(github/码云)</h1><p>git push 远程仓库地址 (分支:可不填) :推送到远程仓库<br>git pull<br>如果使用ssh地址<br>在管理员账户使用 ssh-keygen 生成密钥 文档后缀为File的为私钥 后缀为PUB(public的缩写) File为公钥<br>然后点击github→setting→SSH→New SSH key→输入标题/添加公钥;<br>此时就可以用SSH地址拉取了</p>
-<p>推代码到远程仓库:方法1: git push git@github.com:仓库名称(name/xxx.com.git);<br>                方法2: git push 仓库地址(<a href="https://github.com/name/xxx.com.git" target="_blank" rel="noopener">https://github.com/name/xxx.com.git</a>)<br>                方法2: git remote add 取一个仓库名(通常使用origin) git@github.com:仓库名称(name/xxx.com.git);</p>
+<p>推代码到远程仓库:方法1: git push git@github.com:仓库名称(name/xxx.com.git);<br>                方法2: git push 仓库地址(<a href="https://github.com/name/xxx.com.git" target="_blank" rel="noopener">https://github.com/name/xxx.com.git</a>)<br>                方法3: git remote add 取一个仓库名(通常使用origin) git@github.com:仓库名称(name/xxx.com.git);</p>
 <p>git remote -v 查看添加的远程仓库<br>然后使用 git push origin master 推送到远程仓库</p>
 <p>git pull 仓库名 分支名(master) 拉取到本地</p>
 <h1 id="让git不追踪指定文件"><a href="#让git不追踪指定文件" class="headerlink" title="让git不追踪指定文件"></a>让git不追踪指定文件</h1><p>如果有一些文件不想让git对它追踪<br>touch .gitignore : 在项目目录下建立一个 .gitignore文件<br>vim .gitignore 编辑这个文件<br>然后把想忽略的文件添加到cmd命令行<br>或者可以 index.* :忽略所有以index.为开头的文件(支持glob规则)<br>也可以在里面加上.gitignore 让他忽略.gitignore文件<br>glob规则:<br>    (&#42;号)匹配零或多个任意字符<br>    [abc]匹配任何一个列在方括号中的字符<br>    (?号)只匹配一个任意字符<br>    [0-9]/[a-z]匹配范围</p>

@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.suagnes.com/photos/index.html</loc>
+    
+    <lastmod>2019-05-20T18:58:47.058Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.suagnes.com/2019/02/18/gitOrder/</loc>
+    
+    <lastmod>2019-05-20T18:44:04.020Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.suagnes.com/2019/05/15/react-redux/</loc>
     
-    <lastmod>2019-05-20T05:04:11.620Z</lastmod>
+    <lastmod>2019-05-20T09:46:06.744Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>http://www.suagnes.com/2018/12/24/depthClone/</loc>
     
     <lastmod>2019-05-15T05:29:05.958Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.suagnes.com/2019/02/18/gitOrder/</loc>
-    
-    <lastmod>2019-02-18T15:48:21.353Z</lastmod>
     
   </url>
   
@@ -75,13 +82,6 @@
     <loc>http://www.suagnes.com/2018/12/08/vueI18n/</loc>
     
     <lastmod>2018-12-09T03:47:18.213Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.suagnes.com/photos/index.html</loc>
-    
-    <lastmod>2018-12-08T05:36:45.300Z</lastmod>
     
   </url>
   
