@@ -1,3 +1,5 @@
+http://www.suagnes.com/2019/07/19/2019-07-19/
+http://www.suagnes.com/2019/07/18/react-redux2/
 http://www.suagnes.com/2019/05/15/buildReact/
 http://www.suagnes.com/2019/05/15/react-redux/
 http://www.suagnes.com/2019/02/18/gitOrder/
@@ -6,5 +8,3 @@ http://www.suagnes.com/2018/12/24/depthClone/
 http://www.suagnes.com/2018/12/12/musicLinks/
 http://www.suagnes.com/2018/12/08/vueI18n/
 http://www.suagnes.com/2018/12/08/BuildProjectsVue/
-http://www.suagnes.com/2018/11/07/My-New-Post.1/
-http://www.suagnes.com/2018/11/07/My-New-Post/

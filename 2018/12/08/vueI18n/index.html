@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://www.suagnes.com/2018/12/08/vueI18n/img3.jpg">
 <meta property="og:image" content="http://www.suagnes.com/2018/12/08/vueI18n/img4.jpg">
 <meta property="og:image" content="http://www.suagnes.com/2018/12/08/vueI18n/img5.jpeg">
-<meta property="og:updated_time" content="2018-12-09T03:47:18.213Z">
+<meta property="og:updated_time" content="2019-07-15T08:27:07.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue+vue-i18n搭建国际化网站【兼容Element-UI、动态切换css】">
 <meta name="twitter:description" content="&amp;nbsp;最近因为雾霾很厉害，所以发烧了在家养病，想着难得有空，正好趁机整理一下以前在项目中遇到过的问题及需求。今天想来写一下之前为项目搭建的国际化（i18n）功能，由于之前项目主要是使用的Vue+Element-UI，所以本文章中分别有vue-i18n和兼容element-ui的vue-i18n两种写法，大家可以按需参考。">
@@ -106,7 +106,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/suagnes" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/song-yu-qing-75/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/shihutaoya" title="segmentfault"><i class="icon-segmentfault"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:rachellssr@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -152,7 +152,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/suagnes" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/song-yu-qing-75/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/shihutaoya" title="segmentfault"><i class="icon-segmentfault"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:rachellssr@gmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -251,7 +251,7 @@
 <h3 id="en-js"><a href="#en-js" class="headerlink" title="en.js"></a>en.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> en = &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        <span class="string">'hello'</span>: <span class="string">'hello'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> en</span><br></pre></td></tr></table></figure>
 <h3 id="ja-js"><a href="#ja-js" class="headerlink" title="ja.js"></a>ja.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ja = &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        <span class="string">'hello'</span>: <span class="string">'こんにちは'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ja</span><br></pre></td></tr></table></figure>
 <p>🌟 <strong>在配置语言包的时候，key值一定要保持统一</strong>，因为i18n是通过你的key值来切换语言的，如果key值有误，就不能正确的切换语言包，这一点千万要注意。</p>
-<h3 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> i18n <span class="keyword">from</span> <span class="string">'./i18n/i18n'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  router,</span><br><span class="line">  i18n, <span class="comment">//加上i18n</span></span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: <span class="string">'&lt;App/&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> i18n <span class="keyword">from</span> <span class="string">'./i18n/i18n'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  i18n, <span class="comment">//加上i18n</span></span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: <span class="string">'&lt;App/&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>到此我们的i18n已经全部配置结束了，下面我们去页面中进行使用。</p>
 <h2 id="配置页面"><a href="#配置页面" class="headerlink" title="配置页面"></a>配置页面</h2><h3 id="HTML部分"><a href="#HTML部分" class="headerlink" title="HTML部分"></a>HTML部分</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;$t(‘message.hello’)&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>//此时应该是中文</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"switchLang('en')"</span>&gt;</span>英语<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"switchLang('cn')"</span>&gt;</span>中文<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"switchLang('ja')"</span>&gt;</span>日语<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="Js部分"><a href="#Js部分" class="headerlink" title="Js部分"></a>Js部分</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">    switchLang(lang)  &#123;</span><br><span class="line">        <span class="keyword">this</span>.$i18n.locale = lang </span><br><span class="line">        <span class="comment">//把语言保存在localStorage中</span></span><br><span class="line">        localStorage.setItem(<span class="string">'lang'</span>,lang);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
@@ -634,6 +634,10 @@ setInterval("createtime()",250);
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">N1</a>
               </li>
              
@@ -643,10 +647,6 @@ setInterval("createtime()",250);
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,7 +721,7 @@ setInterval("createtime()",250);
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一个从虚假肥宅逐渐过渡到真实肥宅的&lt;br/&gt;前端程序猿</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个从虚假肥宅逐渐过渡到真实肥宅的&lt;br/&gt;前端程序猿&lt;br/&gt;</div>
   	  	
     	</section>
     

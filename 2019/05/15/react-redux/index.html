@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://www.suagnes.com/2019/05/15/react-redux/img5.png">
 <meta property="og:image" content="http://www.suagnes.com/2019/05/15/react-redux/img6.png">
 <meta property="og:image" content="http://www.suagnes.com/2019/05/15/react-redux/img7.jpeg">
-<meta property="og:updated_time" content="2019-05-20T09:46:06.744Z">
+<meta property="og:updated_time" content="2019-07-18T13:17:22.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一步步带你入门Redux管理数据">
 <meta name="twitter:description" content="闲聊&amp;nbsp;最近忙里偷闲学习了react。由于之前一直都是使用vue做项目，所以学习react的时候觉得既熟悉又陌生。&amp;nbsp;熟悉是因为它和vue拥有许多相似的概念，包括都推崇组件化、都拥有’props’的概念、核心都是视图层框架等等。虽然react不像vue拥有那么多丰富的API，但是在我看来，正因为react本身没有过度的封装，再加上react的社区非常成熟与活跃，才使得react的开">
@@ -108,7 +108,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/suagnes" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/song-yu-qing-75/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/shihutaoya" title="segmentfault"><i class="icon-segmentfault"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:rachellssr@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -154,7 +154,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/suagnes" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/song-yu-qing-75/activities" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/shihutaoya" title="segmentfault"><i class="icon-segmentfault"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:rachellssr@gmail.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -243,7 +243,7 @@
    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h1><p>&nbsp;<br>最近忙里偷闲学习了react。由于之前一直都是使用vue做项目，所以学习react的时候觉得既熟悉又陌生。<br>&nbsp;<br>熟悉是因为它和vue拥有许多相似的概念，包括都推崇组件化、都拥有’props’的概念、核心都是视图层框架等等。虽然react不像vue拥有那么多丰富的API，但是在我看来，正因为react本身没有过度的封装，再加上react的社区非常成熟与活跃，才使得react的开发灵活多变，相比起来，我觉得react更适合大型项目的开发，react的函数式变成也更容易实现前端自动化测试。<br>&nbsp;<br>尤大自己也说过vue从一开始的定位就是尽可能的降低前端开发的门槛，让更多的人能够更快地上手开发。所以学习起来，vue更加圆滑，而react相对陡峭。两者在我看来都是非常优秀的框架，没有高低之分，我们可以根据不同的开发情况选择不同的开发工具。<br><a id="more"></a></p>
+        <h1 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h1><p>&nbsp;<br>最近忙里偷闲学习了react。由于之前一直都是使用vue做项目，所以学习react的时候觉得既熟悉又陌生。<br>&nbsp;<br>熟悉是因为它和vue拥有许多相似的概念，包括都推崇组件化、都拥有’props’的概念、核心都是视图层框架等等。虽然react不像vue拥有那么多丰富的API，但是在我看来，正因为react本身没有过度的封装，再加上react的社区非常成熟与活跃，才使得react的开发灵活多变，相比起来，我觉得react更适合大型项目的开发，react的函数式编程也更容易实现前端自动化测试。<br>&nbsp;<br>尤大自己也说过vue从一开始的定位就是尽可能的降低前端开发的门槛，让更多的人能够更快地上手开发。所以学习起来，vue更加圆滑，而react相对陡峭。两者在我看来都是非常优秀的框架，没有高低之分，我们可以根据不同的开发情况选择不同的开发工具。<br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天主要是想写一下如何在react中管理数据。我会从搭建react项目开始，循序渐进，如果你对这其中的某些过程已经非常了解，可以在右侧的目录中跳过该章节。<br>&nbsp;<br>在此之前，如果你还不了解该如何搭建react项目，请参考我的另一篇文章「<a href="/2019/05/15/buildReact/" title="yarn构建react项目">yarn构建react项目</a>」。</p>
 <h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><p>Redux=Reducer+Flux，Flux是Facebook推出的最原始的辅助React的数据层框架，但是它并不是那么的好用，所以有人把Flux做了一个升级，变成了Redux。</p>
 <h2 id="为什么要使用redux"><a href="#为什么要使用redux" class="headerlink" title="为什么要使用redux"></a>为什么要使用redux</h2><p>请看下面这张图<br><img src="/2019/05/15/react-redux/img1.png" alt="redux" title="redux"></p>
@@ -646,6 +646,10 @@ setInterval("createtime()",250);
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">N1</a>
               </li>
              
@@ -655,10 +659,6 @@ setInterval("createtime()",250);
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,7 +733,7 @@ setInterval("createtime()",250);
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一个从虚假肥宅逐渐过渡到真实肥宅的&lt;br/&gt;前端程序猿</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个从虚假肥宅逐渐过渡到真实肥宅的&lt;br/&gt;前端程序猿&lt;br/&gt;</div>
   	  	
     	</section>
     
