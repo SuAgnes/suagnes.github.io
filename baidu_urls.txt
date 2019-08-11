@@ -1,4 +1,3 @@
-http://www.suagnes.com/2019/07/19/2019-07-19/
 http://www.suagnes.com/2019/07/18/react-redux2/
 http://www.suagnes.com/2019/05/15/buildReact/
 http://www.suagnes.com/2019/05/15/react-redux/
