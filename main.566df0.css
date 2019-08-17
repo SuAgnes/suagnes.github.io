@@ -144,8 +144,10 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
 .article-entry blockquote{
     border-left:5px solid #f3e5ee;
 }
-.article {
-    width: 78% !important;
+@media screen and (min-width: 800px) {
+    .article {
+        width: 78% !important;
+    }
 }
 #gitment-ctn {
     padding: 0 0 0 30px!important;

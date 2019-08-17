@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://www.suagnes.com/2019/05/15/react-redux/img5.png">
 <meta property="og:image" content="http://www.suagnes.com/2019/05/15/react-redux/img6.png">
 <meta property="og:image" content="http://www.suagnes.com/2019/05/15/react-redux/img7.jpeg">
-<meta property="og:updated_time" content="2019-07-18T13:17:22.971Z">
+<meta property="og:updated_time" content="2019-08-15T13:13:45.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一步步带你入门Redux管理数据">
 <meta name="twitter:description" content="闲聊&amp;nbsp;最近忙里偷闲学习了react。由于之前一直都是使用vue做项目，所以学习react的时候觉得既熟悉又陌生。&amp;nbsp;熟悉是因为它和vue拥有许多相似的概念，包括都推崇组件化、都拥有’props’的概念、核心都是视图层框架等等。虽然react不像vue拥有那么多丰富的API，但是在我看来，正因为react本身没有过度的封装，再加上react的社区非常成熟与活跃，才使得react的开">
@@ -289,6 +289,7 @@
 </blockquote>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>拿刚刚的例子来说，我们首先把input的值和store中的inputValue关联到了一起，如果你想修改input框的value值，就必须通过修改store中的inputValue实现。我们用onChange事件监听了input，在每次修改input中的值的时候，我们都创建了一个action，并把这个action派发给了store。<br>&nbsp;<br>store接收到了这个action，会自动把这个action传给reducer。reducer拿到这个action，开始对比action的type值，并进行相应的数据操作，之后返回了一个新的数据给store。我们在组件内监听了store的变化，所以当reducer把值返回给了store，store更新了自己的数据，我们的组件就会监听到刚刚store的变化，随之更换组件内store的数据。<br>&nbsp;<br>input输入流程：App→store→reducer→store→App检测到store发生变化，更新数据，渲染页面<br>&nbsp;<br>点击提交流程：App→store→reducer→store→App.js检测到store发生变化，更新数据→父组件App重新渲染触发子组件List更新渲染<br>&nbsp;</p>
 <h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h1><p>写到这里，如果你只想了解该怎么使用redux，那么至此之前的代码应该已经足够让你上手去使用redux了。但是其实上面的代码中还有很多可以优化的地方，我没有直接把优化过后的代码写出来是怕不易于初学者阅读学习，容易看晕。<br>&nbsp;<br>比如说我们应该利用actionTypes统一常量, 预防因拼写引发的bug，以及将action的创建放到actionCreators中统一进行管理。这样做的优点除了提高代码的可维护性，还可以方便自动化测试。<br>&nbsp;<br>在实际开发中，redux也应遵照组件化开发，建议每个组件都应该拥有自己的store文件夹，src目录下的store应仅仅作为各个组件内store的集合。<br>&nbsp;<br>在子组件List上，我们使用数组的index作为key值并不是一个好的做法。事实上我认为不到万不得已的情况不要使用index作为key值。因为列表每一项的顺序都可能会发生变化（比如说我们如果删除list中的某一项时，list的顺序就发生了变化，list中每一项的index值都发生了改变），react又是通过diff算法去渲染页面的，diff算法通过key值去对比虚拟dom，如果key值全部发生改变，那虚拟dom便会全部更新，这明显会降低我们的性能，所以说使用数组的index作为key值是下下策，有兴趣的话可以去看看这篇文章<a href="https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318" title="key值" target="_blank" rel="noopener">深度解析使用索引作为 key 的负面影响</a>。<br>&nbsp;<br>因为diff算法（虚拟dom从顶层 层层比对）的原因，所以在父组件内只要一改变inputValue的值，子组件就会重新渲染，即使我们并没有修改list数据。这同样会降低我们的性能，试想一下，如果你拥有非常多的子组件，父组件输入任何一个字符都会导致所有子组件的重新渲染，这会消耗多少的性能呢？<br>为了解决这种多余性能的消耗，我们应该在子组件内利用react内置的生命周期函数shouldComponentUpdate去阻止子组件跟随父组件去执行无谓的render函数，这样就可以避免虚拟dom的比对，提升性能。<br>&nbsp;</p>
+<h1 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h1><p>1、<a href="/2019/05/15/buildReact/" title="yarn构建react项目">yarn构建react项目</a><br>2、<a href="/2019/07/18/react-redux2/" title="带你上手react-redux+代码示例">带你上手react-redux+代码示例</a></p>
 <blockquote>
 <p>这篇文章到这里就全部结束了，本来想在一篇里把redux和react-redux都写出来，但是怕太长了，所以下次找时间再写react-redux吧。<br>&nbsp;<br>如果你对这篇文章有任何疑问或补充，都可以在评论区给我留言讨论。<br>&nbsp;<br>顺便一提最近看了排球少年的动漫，虽然比较冷门但是真的是一部不可多得的好作品，无论你喜不喜欢排球我觉得你看了这部动漫后都会爱上它的，强烈安利一波。<br>&nbsp;<br>大家晚安啦。<br><img src="/2019/05/15/react-redux/img7.jpeg" alt="todoList" title="todoList"></p>
 </blockquote>
@@ -501,7 +502,7 @@ gitment.render('gitment-ctn')
   <div id="toc-article" class="toc-article">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
       <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#闲聊"><span class="toc-number">1.</span> <span class="toc-text">闲聊</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">2.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux"><span class="toc-number">3.</span> <span class="toc-text">Redux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用redux"><span class="toc-number">3.1.</span> <span class="toc-text">为什么要使用redux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux-三大原则"><span class="toc-number">3.2.</span> <span class="toc-text">redux 三大原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mutabilit-可变性-amp-Immutability-不变性"><span class="toc-number">3.3.</span> <span class="toc-text">Mutabilit(可变性) &amp; Immutability(不变性)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux的工作流程"><span class="toc-number">3.4.</span> <span class="toc-text">redux的工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装redux"><span class="toc-number">3.5.</span> <span class="toc-text">安装redux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux代码讲解"><span class="toc-number">3.6.</span> <span class="toc-text">redux代码讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础结构-取值"><span class="toc-number">3.6.1.</span> <span class="toc-text">基础结构-取值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改store"><span class="toc-number">3.6.2.</span> <span class="toc-text">修改store</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#监听store"><span class="toc-number">3.6.3.</span> <span class="toc-text">监听store</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化"><span class="toc-number">5.</span> <span class="toc-text">优化</span></a></li></ol>
+         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#闲聊"><span class="toc-number">1.</span> <span class="toc-text">闲聊</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">2.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux"><span class="toc-number">3.</span> <span class="toc-text">Redux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要使用redux"><span class="toc-number">3.1.</span> <span class="toc-text">为什么要使用redux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux-三大原则"><span class="toc-number">3.2.</span> <span class="toc-text">redux 三大原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mutabilit-可变性-amp-Immutability-不变性"><span class="toc-number">3.3.</span> <span class="toc-text">Mutabilit(可变性) &amp; Immutability(不变性)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux的工作流程"><span class="toc-number">3.4.</span> <span class="toc-text">redux的工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装redux"><span class="toc-number">3.5.</span> <span class="toc-text">安装redux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#redux代码讲解"><span class="toc-number">3.6.</span> <span class="toc-text">redux代码讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础结构-取值"><span class="toc-number">3.6.1.</span> <span class="toc-text">基础结构-取值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改store"><span class="toc-number">3.6.2.</span> <span class="toc-text">修改store</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#监听store"><span class="toc-number">3.6.3.</span> <span class="toc-text">监听store</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化"><span class="toc-number">5.</span> <span class="toc-text">优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#推荐阅读"><span class="toc-number">6.</span> <span class="toc-text">推荐阅读</span></a></li></ol>
        </div>
  <script type="text/javascript">
   function showToc(){
@@ -634,6 +635,10 @@ setInterval("createtime()",250);
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">categories</a>
               </li>
              
@@ -642,19 +647,15 @@ setInterval("createtime()",250);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">N1</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日语</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
