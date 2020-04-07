@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.suagnes.com">
-  <title>浅谈深拷贝、浅拷贝的区别【Vuex踩坑记录】 | Rachel Song</title>
+  <title>聊一聊深拷贝、浅拷贝的区别【Vuex踩坑记录】 | Rachel Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="vuex踩坑记录前一阵子在使用Vuex的时候，有这样一个报错。 Do not mutate vuex store state outside mutation handlers. 直译过来就是不要在突变处理程序之外改变vuex存储状态。 我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这">
 <meta name="keywords" content="categories,vue,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈深拷贝、浅拷贝的区别【Vuex踩坑记录】">
+<meta property="og:title" content="聊一聊深拷贝、浅拷贝的区别【Vuex踩坑记录】">
 <meta property="og:url" content="http://www.suagnes.com/2018/12/24/depthClone/index.html">
 <meta property="og:site_name" content="Rachel Song">
 <meta property="og:description" content="vuex踩坑记录前一阵子在使用Vuex的时候，有这样一个报错。 Do not mutate vuex store state outside mutation handlers. 直译过来就是不要在突变处理程序之外改变vuex存储状态。 我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这">
@@ -21,9 +21,9 @@
 <meta property="og:image" content="http://www.suagnes.com/2018/12/24/depthClone/img3.jpeg">
 <meta property="og:image" content="http://www.suagnes.com/2018/12/24/depthClone/img4.jpg">
 <meta property="og:image" content="http://www.suagnes.com/2018/12/24/depthClone/img5.jpg">
-<meta property="og:updated_time" content="2020-04-07T16:45:06.673Z">
+<meta property="og:updated_time" content="2020-04-07T16:48:48.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈深拷贝、浅拷贝的区别【Vuex踩坑记录】">
+<meta name="twitter:title" content="聊一聊深拷贝、浅拷贝的区别【Vuex踩坑记录】">
 <meta name="twitter:description" content="vuex踩坑记录前一阵子在使用Vuex的时候，有这样一个报错。 Do not mutate vuex store state outside mutation handlers. 直译过来就是不要在突变处理程序之外改变vuex存储状态。 我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这">
 <meta name="twitter:image" content="http://www.suagnes.com/2018/12/24/depthClone/img1.png">
   
@@ -189,7 +189,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      浅谈深拷贝、浅拷贝的区别【Vuex踩坑记录】
+      聊一聊深拷贝、浅拷贝的区别【Vuex踩坑记录】
     </h1>
   
 
