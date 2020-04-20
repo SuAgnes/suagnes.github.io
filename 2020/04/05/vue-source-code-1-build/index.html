@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.suagnes.com">
-  <title>VUE源码篇(1)-目录与构建流程 | Rachel Song</title>
+  <title>Vue源码篇解析——目录与构建流程、render、update、vnode | Rachel Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="notes,vue,source-code">
+  <meta name="description" content="前言 vue源码目录1234567891011121314151617181920212223├─benchmarks             # 性能测试相关demo├─dist                   # 项目构建后不同版本的vue文件├─examples               # 用vue写的一些小demo├─flow                   # flow类型声">
+<meta name="keywords" content="notes,vue,source-code">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VUE源码篇(1)-目录与构建流程">
+<meta property="og:title" content="Vue源码篇解析——目录与构建流程、render、update、vnode">
 <meta property="og:url" content="http://www.suagnes.com/2020/04/05/vue-source-code-1-build/index.html">
 <meta property="og:site_name" content="Rachel Song">
+<meta property="og:description" content="前言 vue源码目录1234567891011121314151617181920212223├─benchmarks             # 性能测试相关demo├─dist                   # 项目构建后不同版本的vue文件├─examples               # 用vue写的一些小demo├─flow                   # flow类型声">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-07T16:42:33.185Z">
+<meta property="og:updated_time" content="2020-04-20T16:34:35.025Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VUE源码篇(1)-目录与构建流程">
+<meta name="twitter:title" content="Vue源码篇解析——目录与构建流程、render、update、vnode">
+<meta name="twitter:description" content="前言 vue源码目录1234567891011121314151617181920212223├─benchmarks             # 性能测试相关demo├─dist                   # 项目构建后不同版本的vue文件├─examples               # 用vue写的一些小demo├─flow                   # flow类型声">
   
     <link rel="alternative" href="/atom.xml" title="Rachel Song" type="application/atom+xml">
   
@@ -180,7 +183,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      VUE源码篇(1)-目录与构建流程
+      Vue源码篇解析——目录与构建流程、render、update、vnode
     </h1>
   
 
@@ -201,7 +204,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">0字</span>
+        <span class="post-count">285字</span>
       </span>
     </span> -->
     <span class="post-time">
@@ -232,7 +235,8 @@
    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><!-- 终于开始记录vue源码啦 ~，本篇是vue源码系列的第一篇章，主要 -->
+<h1 id="vue源码目录"><a href="#vue源码目录" class="headerlink" title="vue源码目录"></a>vue源码目录</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">├─benchmarks             # 性能测试相关demo</span><br><span class="line">├─dist                   # 项目构建后不同版本的vue文件</span><br><span class="line">├─examples               # 用vue写的一些小demo</span><br><span class="line">├─flow                   # flow类型声明文件、定义全局方法、变量类型</span><br><span class="line">├─packages               # 一些npm包，可以通过npm install单独使用。</span><br><span class="line">├─scripts                # 项目构建相关的脚本和配置文件</span><br><span class="line">├─src                    # vue核心源码</span><br><span class="line">│    ├─complier          # 模板编译相关代码</span><br><span class="line">│    ├─core              # vue核心中的核心代码</span><br><span class="line">│    │  ├─components     # 内置组件的代码(keep-alive)</span><br><span class="line">│    │  ├─global-api     # 全局api(如extend、mixin)</span><br><span class="line">│    │  ├─instance       # 实例化相关（渲染、初始化、生命周期等）</span><br><span class="line">│    │  ├─observe        # 响应式相关代码</span><br><span class="line">│    │  ├─util           # 一些工具方法</span><br><span class="line">│    │  └─vdom           # virtual dom相关代码（create-element、create-element等）</span><br><span class="line">│    ├─platforms         # 跨平台兼容（例如weex)</span><br><span class="line">│    │  ├─web            # 浏览器平台（日常开发)</span><br><span class="line">│    │  └─weex           # 类似rn的跨端应用</span><br><span class="line">│    ├─server            # 服务器SSR渲染相关代码</span><br><span class="line">│    ├─sfc               # 解释器，可以把单文件(*.vue)编译成一个js对象</span><br><span class="line">│    └─shared            # 辅助方法，可以被core或cpmpiler等等与platforms目录共享的一些辅助方法会放到这个目录下</span><br><span class="line">├─test                   # 项目测试用例</span><br><span class="line">└─types                  # 新版本vue支持typescript，此处为typescript相关声明文件</span><br></pre></td></tr></table></figure>
       
       
       
@@ -429,6 +433,30 @@ gitment.render('gitment-ctn')
 
  <!-- 目录内容 -->
  
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+        <span class="btn-bg"></span>
+        <span class="btn-text">文章导航</span>
+        </p>
+  <div id="toc-article" class="toc-article">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vue源码目录"><span class="toc-number">2.</span> <span class="toc-text">vue源码目录</span></a></li></ol>
+       </div>
+ <script type="text/javascript">
+  function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+  function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+ </script>
+    
 <!-- 目录内容结束 -->
           </div>
         </div>
