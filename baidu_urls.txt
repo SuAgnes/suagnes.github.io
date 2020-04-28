@@ -1,3 +1,4 @@
+http://www.suagnes.com/2020/04/05/vue-source-code-1-build/
 http://www.suagnes.com/2020/04/02/RegExp/
 http://www.suagnes.com/2019/07/18/react-redux2/
 http://www.suagnes.com/2019/05/15/buildReact/
@@ -7,4 +8,3 @@ http://www.suagnes.com/2018/12/28/N1-ktwr-ktgt-gtr/
 http://www.suagnes.com/2018/12/24/depthClone/
 http://www.suagnes.com/2018/12/12/musicLinks/
 http://www.suagnes.com/2018/12/08/vueI18n/
-http://www.suagnes.com/2018/12/08/BuildProjectsVue/

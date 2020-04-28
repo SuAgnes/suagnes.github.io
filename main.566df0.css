@@ -153,3 +153,6 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
     padding: 0 0 0 30px!important;
     width: 80%;
 }
+.article-entry strong {
+    color: #5999db;
+}

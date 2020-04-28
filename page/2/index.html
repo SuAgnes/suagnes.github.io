@@ -6,26 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.suagnes.com">
-  <title>聊一聊深拷贝、浅拷贝的区别【Vuex踩坑记录】 | Rachel Song</title>
+  <title>Rachel Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vuex踩坑记录前一阵子在使用Vuex的时候，有这样一个报错。 Do not mutate vuex store state outside mutation handlers. 直译过来就是不要在突变处理程序之外改变vuex存储状态。 我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这">
-<meta name="keywords" content="categories,vue,JavaScript">
-<meta property="og:type" content="article">
-<meta property="og:title" content="聊一聊深拷贝、浅拷贝的区别【Vuex踩坑记录】">
-<meta property="og:url" content="http://www.suagnes.com/2018/12/24/depthClone/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Rachel Song">
+<meta property="og:url" content="http://www.suagnes.com/page/2/index.html">
 <meta property="og:site_name" content="Rachel Song">
-<meta property="og:description" content="vuex踩坑记录前一阵子在使用Vuex的时候，有这样一个报错。 Do not mutate vuex store state outside mutation handlers. 直译过来就是不要在突变处理程序之外改变vuex存储状态。 我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.suagnes.com/2018/12/24/depthClone/img1.png">
-<meta property="og:image" content="http://www.suagnes.com/2018/12/24/depthClone/img2.jpg">
-<meta property="og:image" content="http://www.suagnes.com/2018/12/24/depthClone/img3.jpeg">
-<meta property="og:image" content="http://www.suagnes.com/2018/12/24/depthClone/img4.jpg">
-<meta property="og:image" content="http://www.suagnes.com/2018/12/24/depthClone/img5.jpg">
-<meta property="og:updated_time" content="2020-04-07T16:48:48.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="聊一聊深拷贝、浅拷贝的区别【Vuex踩坑记录】">
-<meta name="twitter:description" content="vuex踩坑记录前一阵子在使用Vuex的时候，有这样一个报错。 Do not mutate vuex store state outside mutation handlers. 直译过来就是不要在突变处理程序之外改变vuex存储状态。 我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这">
-<meta name="twitter:image" content="http://www.suagnes.com/2018/12/24/depthClone/img1.png">
+<meta name="twitter:title" content="Rachel Song">
   
     <link rel="alternative" href="/atom.xml" title="Rachel Song" type="application/atom+xml">
   
@@ -182,153 +171,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-depthClone" class="article article-type-post " itemscope="" itemprop="blogPost">
+            
+  
+    <article id="post-BuildProjectsVue" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      聊一聊深拷贝、浅拷贝的区别【Vuex踩坑记录】
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/08/BuildProjectsVue/">使用vue-cli从0搭建Vue开发环境</a>
     </h1>
   
 
 
         
-        <a href="/2018/12/24/depthClone/" class="archive-article-date">
-  	<time datetime="2018-12-24T15:44:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-24</time>
+        <a href="/2018/12/08/BuildProjectsVue/" class="archive-article-date">
+  	<time datetime="2018-12-07T17:29:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-08</time>
 </a>
         
         
-          <span class="archive-article-date">
-            阅读量 <span id="busuanzi_value_page_pv"></span>
-          </span>
-           <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;" class="word-css">
-    <!-- <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.3k字</span>
-      </span>
-    </span> -->
-    <span class="post-time">
-      <!-- &nbsp; | &nbsp; -->
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
-      </span>
-    </span>
-</div>
-<style>
-.word-css *{
-    color: #999;
-    font-size: 13px;
-}
-/* .word-css{
-    position: absolute;
-    margin-top: 0 !important;
-    right: 7%;
-} */
-</style>
-          
-        <!-- 添加完成 -->
-      
       </header>
     
    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="vuex踩坑记录"><a href="#vuex踩坑记录" class="headerlink" title="vuex踩坑记录"></a>vuex踩坑记录</h1><p>前一阵子在使用Vuex的时候，有这样一个报错。<br><img src="/2018/12/24/depthClone/img1.png" alt="vuexError" title="vuexError"></p>
-<pre><code>Do not mutate vuex store state outside mutation handlers.
-直译过来就是不要在突变处理程序之外改变vuex存储状态。
-</code></pre><p>我们都知道，既然使用了vuex，那么想要更改vuex中store的状态的唯一方法就是提交mutation，因为vuex不允许直接修改store的内容，所以才会报这个错误。<br>我在已知这点的情况下，先slice()了vuex里的数据，再进行使用，可还是报了相同的错误。后来查了下资料，才发现是深浅拷贝的问题，下面就来浅谈一下深浅拷贝的区别，以及总结几种不同的深浅拷贝方法。<br><a id="more"></a></p>
-<h1 id="深浅拷贝介绍"><a href="#深浅拷贝介绍" class="headerlink" title="深浅拷贝介绍"></a>深浅拷贝介绍</h1><p>在很多编程语言中（例如Java、JavaScript、C++），不同的数据类型，对应着不同的内存存储方式，基本数据类型通常保存在栈内存中，而引用类型仅仅是在栈内存中保存了一个指向堆内存的地址，通过在栈内存中保存的地址，去访问到保存在堆内存中的值。<br>我们所说的浅拷贝，正是拷贝了栈内存中的引用类型数据的指针，而深拷贝，则是在拷贝数据内容的同时，生成新的指针，在堆内存中开辟自己的空间。<br>我用大白话来解释一下，所谓的浅拷贝，比方说我们有b这样一个对象，我们用a复制了b，当我们改变b的时候观察a会不会随之变化，如果a也变了，那就是浅拷贝（因为只复制了栈内存中的指针，它们指向的还是相同的堆内存空间），如果a没变，那证明a和b在堆内存中分别占用了不同的空间，也就是深拷贝了。</p>
-<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//我在此处定义了一个变量aVuexData，aVuexData是一个包含三个对象的数组。</span></span><br><span class="line"><span class="keyword">let</span> aVuexData=[&#123;<span class="attr">name</span>:<span class="string">'Jack'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'Tom'</span>,<span class="attr">age</span>:<span class="number">20</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'David'</span>,<span class="attr">age</span>:<span class="number">15</span>&#125;];</span><br><span class="line"><span class="keyword">let</span> arr=aVuexData;</span><br><span class="line"><span class="built_in">console</span>.log(arr==aVuexData);<span class="comment">//true,证明arr与aVuexData的指针相同，它们指向堆内存中相同的数据。</span></span><br></pre></td></tr></table></figure>
-<p>紧接着我们修改arr。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[<span class="number">0</span>].name=<span class="string">'Hank'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aVuexData[<span class="number">0</span>].name==<span class="string">'Hank'</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
-<p>aVuexData[0].name==’Hank’为true，证明aVuexData[0]的name值由原先的Jack变成了Hank，但我们没有对aVuexData做任何操作，aVuexData是随着arr改变而改变了，这是显而易见的浅拷贝。</p>
-<h3 id="slice-拷贝"><a href="#slice-拷贝" class="headerlink" title="slice()拷贝"></a>slice()拷贝</h3><p>我们知道<a href="http://www.w3school.com.cn/jsref/jsref_slice_array.asp" title="slice()方法" target="_blank" rel="noopener">slice()方法</a>可从已有的数组中返回选定的元素，它的返回值是一个新的数组。<br>这样看来，slice()似乎可以帮我们达到深拷贝的目的，但它并不可靠，这也正是我在vuex里报错的原因，下面来看一个例子。<br>接着使用上面的aVuexData。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arrNew=aVuexData.slice();</span><br><span class="line"><span class="built_in">console</span>.log(arrNew==aVuexData);<span class="comment">//false，也就是说，此处的arrNew与aVuexData指向了不同的指针地址，即使数据相同，它们也各自在堆内存中拥有着自己的一席之地。</span></span><br><span class="line"><span class="built_in">console</span>.log(arrNew[<span class="number">0</span>]==aVuexData[<span class="number">0</span>]);<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
-<p>注意，这时候打印arrNew[0]与aVuexData[0]是否相等，返回的结果是true，证明它们的指针还是指向同一个堆内存地址，也就是说，我们虽然深拷贝了外层的数组，但并没有对数组中的引用类型数据进行深拷贝——它依旧是仅仅拷贝了指针地址，依旧是一个浅拷贝。slice()并没有让内层的引用类型数据开辟新的堆内存空间，这也正是vuex报错的原因，我们在改变内层数据的时候，其实还是直接修改了在vuex的store里的数据，所以才会报错。</p>
-<h3 id="concat-拷贝"><a href="#concat-拷贝" class="headerlink" title="concat()拷贝"></a>concat()拷贝</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arrNew = [].concat(aVuexData);</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.w3school.com.cn/jsref/jsref_concat_array.asp" title="concat()方法" target="_blank" rel="noopener">concat()方法</a>不会改变现有的数组，而仅仅会返回被连接数组的一个副本。<br>在拷贝引用类型的数据时，<a href="http://www.w3school.com.cn/jsref/jsref_concat_array.asp" title="concat()方法" target="_blank" rel="noopener">concat()方法</a>的效果与<a href="http://www.w3school.com.cn/jsref/jsref_slice_array.asp" title="slice()方法" target="_blank" rel="noopener">slice()方法</a>完全相同。<br>slice()与concat()都可以进行引用类型内数据为基本类型数据的深拷贝，但我认为这样做太过冒险，因为一旦内容里被加上了一个引用类型的值，那么它就不再是一个深拷贝了，所以为了以防万一，我还是把这两个方法归在了浅拷贝里。</p>
-<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p><strong>那么，究竟怎样才能万无一失的进行深拷贝呢？</strong></p>
-<h3 id="递归方法"><a href="#递归方法" class="headerlink" title="递归方法"></a>递归方法</h3><p>我这边自己封装了一个函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> DeepClone = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> type = <span class="keyword">typeof</span> value;</span><br><span class="line">            <span class="comment">//因为数组要用到push 对象要用Object.keys  所以得是不用的类型 这里先定义undefined 在后面定义类型</span></span><br><span class="line">            <span class="keyword">let</span> newone = <span class="literal">undefined</span>; </span><br><span class="line">            <span class="keyword">if</span> (type === <span class="string">'string'</span> || type === <span class="string">'number'</span> || type === <span class="string">'boolean'</span>) &#123; <span class="comment">//基础类型</span></span><br><span class="line">                newone = value; <span class="comment">//基础类型直接等于就好了</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (type === <span class="string">'object'</span>) &#123; <span class="comment">//堆类型</span></span><br><span class="line">                <span class="keyword">if</span> (value === <span class="literal">null</span>) &#123;</span><br><span class="line">                    newone = <span class="literal">null</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(value).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Object'</span>) &#123; <span class="comment">//对象要先将newone改为对象类型</span></span><br><span class="line">                    newone = &#123;&#125;;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(value)) &#123;</span><br><span class="line">                        newone[key] = DeepClone(value[key]); <span class="comment">//递归直到值为基本类型</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(value).slice(<span class="number">8</span>, <span class="number">-1</span>) === <span class="string">'Array'</span>) &#123;</span><br><span class="line">                    newone = []; <span class="comment">//对象要先将newone改为数组类型</span></span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">                        newone.push(DeepClone(value[i])) <span class="comment">//与对象同理</span></span><br><span class="line">                    &#125; <span class="comment">//不用foreach是如果有undefined会有bug</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> newone</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//测试</span></span><br><span class="line">        <span class="keyword">let</span> arrDeepClone = DeepClone(aVuexData);</span><br><span class="line">        <span class="built_in">console</span>.log(arrDeepClone[<span class="number">0</span>]==aVuexData[<span class="number">0</span>]);<span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
-<pre><code>    此时，它们的内层数据也已经开辟了新的堆内存空间，是一个完完全全的深拷贝了。
-</code></pre><h3 id="利用JSON对象的stringify和parse"><a href="#利用JSON对象的stringify和parse" class="headerlink" title="利用JSON对象的stringify和parse"></a>利用JSON对象的stringify和parse</h3><p><a href="http://www.runoob.com/js/javascript-json-stringify.html" title="JSON.stringify()" target="_blank" rel="noopener">JSON.stringify()</a>方法用于将 JavaScript 值转换为 JSON 字符串。<br><a href="https://www.runoob.com/js/javascript-json-parse.html" title="JSON.parse()" target="_blank" rel="noopener">JSON.parse()</a>方法用于将一个 JSON 字符串转换为对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> jsonDeepClone = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(value));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arrJsonDeepClone = jsonDeepClone(aVuexData);</span><br><span class="line"><span class="built_in">console</span>.log(arrJsonDeepClone[<span class="number">0</span>] == aVuexData[<span class="number">0</span>]); <span class="comment">//false，同样实现了深拷贝</span></span><br></pre></td></tr></table></figure></p>
-<p>&nbsp;<br>所有的打印结果一览<br><img src="/2018/12/24/depthClone/img2.jpg" alt="console" title="console"></p>
-<h1 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h1><p>终于赶在圣诞节前把这篇文章整理出来了，非常的开心 ~ 因为最近刚刚把博客搭出来，还处在一个总结整理的阶段，所以每写一篇新的文章，感觉都是对过去自己的肯定，也希望我过去这一段时间的踩坑经验可以帮助到更多人解决工作与学习上的问题。如果你觉得我的文章对你有帮助，请点个赞鼓励一下我，这样我会加大马力继续努力多出些干货的，嘻嘻。<br>如果你对本文有任何的疑问或补充，都欢迎在评论区给我留言讨论，最后祝大家平安夜、圣诞节快乐，记得吃苹果哦 ~🍎🍎<br>感谢观看。<br><img src="/2018/12/24/depthClone/img3.jpeg" alt="圣诞节" title="圣诞节"></p>
-<h1 id="2020年4月7日更新"><a href="#2020年4月7日更新" class="headerlink" title="2020年4月7日更新"></a>2020年4月7日更新</h1><p>利用JSON对象的stringify和parse方法也不是万无一失的。</p>
-<blockquote>
-<p>会忽略 undefined<br>会忽略 symbol<br>不能序列化函数</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="literal">undefined</span>,</span><br><span class="line">  b: <span class="string">'hi'</span>,</span><br><span class="line">  c: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">  d: <span class="built_in">Symbol</span>(<span class="string">'syl'</span>),</span><br><span class="line">&#125;</span><br><span class="line">jsonDeepClone(obj)</span><br><span class="line"><span class="comment">// &#123;b: "hi"&#125;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>不能解决循环引用的对象</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> circularObj = &#123;</span><br><span class="line">  a: <span class="string">''</span>,</span><br><span class="line">  b: &#123;</span><br><span class="line">    c: <span class="string">''</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">circularObj.a = circularObj.b;</span><br><span class="line">circularObj.b.c = circularObj.a;</span><br><span class="line">jsonDeepClone(circularObj);</span><br></pre></td></tr></table></figure>
-<p>循环引用会报错。<br><img src="/2018/12/24/depthClone/img4.jpg" alt="error" title="error"></p>
-<h2 id="MessageChannel"><a href="#MessageChannel" class="headerlink" title="MessageChannel"></a>MessageChannel</h2><p>如果你想拷贝的对象含有undefined或循环引用，但是不包括函数和Symbol对象，那么就可以使用<a href="https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel" title="MessageChannel" target="_blank" rel="noopener">MessageChannel()</a>来进行深拷贝。</p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel" title="MessageChannel" target="_blank" rel="noopener">MessageChannel()</a>方法创建了一个消息通道，并通过它的两个MessagePort属性发送数据。并且<a href="https://developer.mozilla.org/en-US/docs/Web/API/MessageChannel" title="MessageChannel" target="_blank" rel="noopener">MessageChannel()</a>方法存在两个属性（port1、port2），分别代表两个通道端口，这两个通道都可以通过<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage" title="postMessage" target="_blank" rel="noopener">postMessage()</a>向对方发送数据。</p>
-<p>来看一个小例子。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> channel = <span class="keyword">new</span> MessageChannel();</span><br><span class="line"><span class="keyword">const</span> &#123; port1, port2 &#125; = channel;</span><br><span class="line">port1.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(msg)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`port1接收了：<span class="subst">$&#123;msg.data&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line">port2.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`port2接收了：<span class="subst">$&#123;msg.data&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 发送消息</span></span><br><span class="line">port1.postMessage(<span class="string">'port1发送的消息'</span>)</span><br><span class="line">port2.postMessage(<span class="string">'port2发送的消息'</span>)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>port2接收了：port1发送的消息<br>port1接收了：port2发送的消息</p>
-<p>这时候你可能会疑惑，MessageChannel与深拷贝有什么关系呢，其实，postMessage里传递的数据，实际上是经过深拷贝的，它不同于Json对象，对undefined和循环引用都是友好的。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">structuralClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; port1, port2 &#125; = <span class="keyword">new</span> MessageChannel();</span><br><span class="line">    port2.onmessage = <span class="function"><span class="params">ev</span> =&gt;</span> resolve(ev.data);</span><br><span class="line">    port1.postMessage(obj);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 循环引用</span></span><br><span class="line">structuralClone(circularObj).then(<span class="function">(<span class="params">deep</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 不要忘记MessageChannel是异步的</span></span><br><span class="line">    <span class="keyword">let</span> copyObj = deep;</span><br><span class="line">    <span class="built_in">console</span>.log(copyObj, circularObj);</span><br><span class="line">    <span class="built_in">console</span>.log(copyObj == circularObj); <span class="comment">// false</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// undefined与内置对象，使用刚刚的例子</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    a: <span class="literal">undefined</span>,</span><br><span class="line">    b: <span class="string">'hi'</span>,</span><br><span class="line">    c: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</span><br><span class="line">    d: <span class="built_in">Symbol</span>(<span class="string">'syl'</span>),</span><br><span class="line">    e: &#123;</span><br><span class="line">        f: <span class="string">'wow'</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">structuralClone(obj).then(<span class="function">(<span class="params">deep</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> copyObj = deep;</span><br><span class="line">    <span class="built_in">console</span>.log(copyObj, obj);</span><br><span class="line">    <span class="built_in">console</span>.log(copyObj == obj); <span class="comment">// false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>来看一下执行结果。</p>
-<p><img src="/2018/12/24/depthClone/img5.jpg" alt="error" title="error"></p>
-<p>报错了，上面提过，这种深拷贝方式不适合包含函数的对象和Symbol()。<br>&nbsp;<br>我们去掉它们试一下。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="literal">undefined</span>,</span><br><span class="line">  b: <span class="string">'hi'</span>,</span><br><span class="line">  c: &#123;</span><br><span class="line">      d: <span class="string">'wow'</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">structuralClone(obj).then(<span class="function">(<span class="params">deep</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> copyObj = deep;</span><br><span class="line">    <span class="built_in">console</span>.log(copyObj, obj);</span><br><span class="line">    <span class="built_in">console</span>.log(copyObj == obj); <span class="comment">// false</span></span><br><span class="line">    <span class="built_in">console</span>.log(copyObj.c == obj.c); <span class="comment">// false 内置对象同样被拷贝了</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>当然，最保险的还是使用<a href="https://lodash.com/docs/4.17.15#cloneDeep" title="lodash" target="_blank" rel="noopener">lodash</a>的深拷贝(cloneDeep)，有兴趣的可以去看看。</p>
-
+        <p>&nbsp;<br>在程序开发中，有三种方式可以创建vue项目，分别是本地引用、使用CDN引入vue.js、使用vue-cli搭建项目。本文主要介绍使用vue-cli搭建项目。<br></p>
+        
       
       
       
-        <div class="declare">
-          <strong>本文作者：</strong>
-          
-            Rachel Song
-          
-          <br>
-          <strong>本文链接：</strong>
-          http://www.suagnes.com/2018/12/24/depthClone/
-          <br>
-          <strong>版权声明：</strong>
-          本作品采用
-          <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
-          进行许可。转载请注明出处！
-          
-        </div>
+        <div class="declare" hidden="hidden"></div>
       
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">☀️</span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>点个赞吧<i class="icon icon-quo-right"></i></p>
-                  <!-- <p class="reward-p">
-                      <p>点个赞再走吧</p>
-                      <p>oProgrammer.write(change in demand!)}</p>
-                  </p> -->
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/pika.gif">
-                      <!-- <span class="reward-type">支付宝</span> -->
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -345,10 +219,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -356,58 +226,11 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/08/BuildProjectsVue/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.suagnes.com/2018/12/24/depthClone/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
@@ -416,27 +239,6 @@
       本文总阅读量<span id="busuanzi_value_page_pv"></span>次
    </span> -->
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/12/28/N1-ktwr-ktgt-gtr/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          「N1语法」かたがた、かたわら、がてら的区别
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/12/12/musicLinks/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">用网易云生成你自己的音乐外链、提取lrc歌词文件、专辑图片。</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -456,62 +258,18 @@
 
 
 
-  
-  
-  
-  
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<!-- <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
-<script src="https://jjeejj.github.io/js/gitment.js"></script> -->
-<!-- 汉化 -->
-<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-<script src="https://billts.site/js/gitment.js"></script>
-<script>
-var gitment = new Gitment({
-  // id: "http://www.suagnes.com/2018/12/24/depthClone/",
-  id: 'Mon Dec 24 2018 23:44:38 GMT+0800',
-  owner: 'suagnes',
-  repo: 'suagnes.github.io',
-  oauth: {
-    client_id: '4e311e5176678322f18a',
-    client_secret: '23ded061007809a2e5afdc4995b416197c2f3f5a',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
-
 
  <!-- 目录内容 -->
  
-  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-        <span class="btn-bg"></span>
-        <span class="btn-text">文章导航</span>
-        </p>
-  <div id="toc-article" class="toc-article">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-      <strong class="toc-title">文章目录</strong>
-         <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vuex踩坑记录"><span class="toc-number">1.</span> <span class="toc-text">vuex踩坑记录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#深浅拷贝介绍"><span class="toc-number">2.</span> <span class="toc-text">深浅拷贝介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#浅拷贝"><span class="toc-number">2.1.</span> <span class="toc-text">浅拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#slice-拷贝"><span class="toc-number">2.1.1.</span> <span class="toc-text">slice()拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#concat-拷贝"><span class="toc-number">2.1.2.</span> <span class="toc-text">concat()拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深拷贝"><span class="toc-number">2.2.</span> <span class="toc-text">深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#递归方法"><span class="toc-number">2.2.1.</span> <span class="toc-text">递归方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用JSON对象的stringify和parse"><span class="toc-number">2.2.2.</span> <span class="toc-text">利用JSON对象的stringify和parse</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#闲聊"><span class="toc-number">3.</span> <span class="toc-text">闲聊</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2020年4月7日更新"><span class="toc-number">4.</span> <span class="toc-text">2020年4月7日更新</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MessageChannel"><span class="toc-number">4.1.</span> <span class="toc-text">MessageChannel</span></a></li></ol></li></ol>
-       </div>
- <script type="text/javascript">
-  function showToc(){
-      var toc_article = document.getElementById("toc-article");
-      var show_toc_btn = document.getElementById("show-toc-btn");
-      toc_article.setAttribute("style","display:block");
-      show_toc_btn.setAttribute("style","display:none");
-      };
-  function showBtn(){
-      var toc_article = document.getElementById("toc-article");
-      var show_toc_btn = document.getElementById("show-toc-btn");
-      toc_article.setAttribute("style","display:none");
-      show_toc_btn.setAttribute("style","display:block");
-      };
- </script>
-    
 <!-- 目录内容结束 -->
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
+
+
           </div>
         </div>
       </div>
@@ -559,8 +317,8 @@ setInterval("createtime()",250);
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
