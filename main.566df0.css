@@ -156,3 +156,18 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
 .article-entry strong {
     color: #5999db;
 }
+
+.article-entry p{
+    margin: 1.2em 0;
+}
+
+.article-entry h2 {
+    margin: 45px 0 0.8em;
+}
+
+.article-entry p code {
+    /* color: #779df5; */
+    color: #1187e4;
+    border: 0;
+    background: #f3f3f3;
+}
