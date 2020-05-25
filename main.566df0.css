@@ -175,6 +175,7 @@ pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .pr
 .article-entry ul li:before {
     border: 0;
     background: #7ba8ea;
+    background: #6a9ce4;
     
 }
 .article-entry li ol li:before {
