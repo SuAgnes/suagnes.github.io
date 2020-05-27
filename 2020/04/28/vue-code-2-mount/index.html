@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.suagnes.com">
-  <title>Vue源码分析——new Vue()时发生了什么 | Rachel Song</title>
+  <title>Vue源码分析——从new Vue()到实例挂载 | Rachel Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="new Vue()看到new Vue()，我们首先想到，new 操作符代表着实例化一个对象，而这里的Vue，实际上就是一个类，该篇文章具体探讨Runtime Compiler下的Vue实例，想知道new Vue()时发生了什么，我们首先要找到Vue的定义，入口文件为entry-runtime-with-compiler。">
 <meta name="keywords" content="notes,vue,source-code">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue源码分析——new Vue()时发生了什么">
+<meta property="og:title" content="Vue源码分析——从new Vue()到实例挂载">
 <meta property="og:url" content="http://www.suagnes.com/2020/04/28/vue-code-2-mount/index.html">
 <meta property="og:site_name" content="Rachel Song">
 <meta property="og:description" content="new Vue()看到new Vue()，我们首先想到，new 操作符代表着实例化一个对象，而这里的Vue，实际上就是一个类，该篇文章具体探讨Runtime Compiler下的Vue实例，想知道new Vue()时发生了什么，我们首先要找到Vue的定义，入口文件为entry-runtime-with-compiler。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-25T17:29:38.924Z">
+<meta property="og:updated_time" content="2020-05-25T17:37:01.464Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue源码分析——new Vue()时发生了什么">
+<meta name="twitter:title" content="Vue源码分析——从new Vue()到实例挂载">
 <meta name="twitter:description" content="new Vue()看到new Vue()，我们首先想到，new 操作符代表着实例化一个对象，而这里的Vue，实际上就是一个类，该篇文章具体探讨Runtime Compiler下的Vue实例，想知道new Vue()时发生了什么，我们首先要找到Vue的定义，入口文件为entry-runtime-with-compiler。">
   
     <link rel="alternative" href="/atom.xml" title="Rachel Song" type="application/atom+xml">
@@ -183,7 +183,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Vue源码分析——new Vue()时发生了什么
+      Vue源码分析——从new Vue()到实例挂载
     </h1>
   
 
