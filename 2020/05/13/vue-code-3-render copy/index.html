@@ -9,7 +9,7 @@
   <title>Vue源码分析——从render()到生成vnode | Rachel Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言  本篇是vue源码分析的第三篇，上一篇讲到开始执行 _update() ，本片从_update()开始，延伸到render()，再到生成 vnode 、具体分析在 patch 之前Vue都做了些什么。">
-<meta name="keywords" content="vue,notes,source-code">
+<meta name="keywords" content="notes,vue,source-code">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue源码分析——从render()到生成vnode">
 <meta property="og:url" content="http://www.suagnes.com/2020/05/13/vue-code-3-render copy/index.html">
@@ -330,11 +330,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">notes</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -411,18 +411,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/13/vue-code-3-render/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Vue源码分析——从render()到生成vnode
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/28/vue-code-2-mount/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Vue源码分析——从new Vue()到到实例挂载</div>
+    <a href="/2020/05/13/vue-code-3-render/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue源码分析——从render()到生成vnode</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -618,15 +609,15 @@ setInterval("createtime()",250);
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">categories</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">notes</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -638,11 +629,11 @@ setInterval("createtime()",250);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
