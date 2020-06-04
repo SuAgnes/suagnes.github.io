@@ -6,24 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://www.suagnes.com">
-  <title>Vue源码分析——从render()到生成vnode | Rachel Song</title>
+  <title>Vue源码分析——首次执行_update时都发生了些什么 | Rachel Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言本篇是vue源码分析的第三篇，上一篇讲到开始执行 _update() ，本片从_update()开始，延伸到render()，再到生成 vnode 、具体分析在 patch 之前Vue都做了些什么。">
+  <meta name="description" content="前言本篇是vue源码分析的第三篇，本篇从_update()开始，具体分析了使用 render 生成 VNode 到插入节点的过程。 VNodevirtual dom 是一个用原生js对象去描述的 DOM 节点，它比创建一个 DOM 的代价要小很多。在vue中，virtual dom 是用 vnode 这么一个 class 去描述，它定义在 src/core/vdom/vnode.js 中。1234">
 <meta name="keywords" content="notes,vue,source-code">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue源码分析——从render()到生成vnode">
+<meta property="og:title" content="Vue源码分析——首次执行_update时都发生了些什么">
 <meta property="og:url" content="http://www.suagnes.com/2020/05/13/vue-code-3-render/index.html">
 <meta property="og:site_name" content="Rachel Song">
-<meta property="og:description" content="前言本篇是vue源码分析的第三篇，上一篇讲到开始执行 _update() ，本片从_update()开始，延伸到render()，再到生成 vnode 、具体分析在 patch 之前Vue都做了些什么。">
+<meta property="og:description" content="前言本篇是vue源码分析的第三篇，本篇从_update()开始，具体分析了使用 render 生成 VNode 到插入节点的过程。 VNodevirtual dom 是一个用原生js对象去描述的 DOM 节点，它比创建一个 DOM 的代价要小很多。在vue中，virtual dom 是用 vnode 这么一个 class 去描述，它定义在 src/core/vdom/vnode.js 中。1234">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.suagnes.com/2020/05/13/vue-code-3-render/img1.jpg">
 <meta property="og:image" content="http://www.suagnes.com/2020/05/13/vue-code-3-render/img2.png">
 <meta property="og:image" content="http://www.suagnes.com/2020/05/13/vue-code-3-render/img3.png">
 <meta property="og:image" content="http://www.suagnes.com/2020/05/13/vue-code-3-render/img4.png">
-<meta property="og:updated_time" content="2020-06-04T18:16:59.035Z">
+<meta property="og:updated_time" content="2020-06-04T18:25:12.457Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue源码分析——从render()到生成vnode">
-<meta name="twitter:description" content="前言本篇是vue源码分析的第三篇，上一篇讲到开始执行 _update() ，本片从_update()开始，延伸到render()，再到生成 vnode 、具体分析在 patch 之前Vue都做了些什么。">
+<meta name="twitter:title" content="Vue源码分析——首次执行_update时都发生了些什么">
+<meta name="twitter:description" content="前言本篇是vue源码分析的第三篇，本篇从_update()开始，具体分析了使用 render 生成 VNode 到插入节点的过程。 VNodevirtual dom 是一个用原生js对象去描述的 DOM 节点，它比创建一个 DOM 的代价要小很多。在vue中，virtual dom 是用 vnode 这么一个 class 去描述，它定义在 src/core/vdom/vnode.js 中。1234">
 <meta name="twitter:image" content="http://www.suagnes.com/2020/05/13/vue-code-3-render/img1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Rachel Song" type="application/atom+xml">
@@ -188,7 +188,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Vue源码分析——从render()到生成vnode
+      Vue源码分析——首次执行_update时都发生了些什么
     </h1>
   
 
@@ -209,7 +209,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">6.2k字</span>
+        <span class="post-count">6.1k字</span>
       </span>
     </span> -->
     <span class="post-time">
@@ -240,7 +240,7 @@
    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇是vue源码分析的第三篇，上一篇讲到开始执行 <code>_update()</code> ，本片从<code>_update()</code>开始，延伸到<code>render()</code>，再到生成 <code>vnode</code> 、具体分析在 <code>patch</code> 之前Vue都做了些什么。<br><a id="more"></a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇是vue源码分析的第三篇，本篇从<code>_update()</code>开始，具体分析了使用 <code>render</code> 生成 <code>VNode</code> 到插入节点的过程。</p>
 <h1 id="VNode"><a href="#VNode" class="headerlink" title="VNode"></a>VNode</h1><p><code>virtual dom</code> 是一个用原生js对象去描述的 <code>DOM</code> 节点，它比创建一个 <code>DOM</code> 的代价要小很多。在vue中，<code>virtual dom</code> 是用 <code>vnode</code> 这么一个 <code>class</code> 去描述，它定义在 <code>src/core/vdom/vnode.js</code> 中。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/core/vdom/vnode.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以看到整个 vnode 的定义就是一个class</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">VNode</span> </span>&#123;</span><br><span class="line">  tag: string | <span class="keyword">void</span>; <span class="comment">// 什么类型的标签</span></span><br><span class="line">  data: VNodeData | <span class="keyword">void</span>; <span class="comment">// 数据 VNodeData定义在flow/vnode.js中</span></span><br><span class="line">  children: ?<span class="built_in">Array</span>&lt;VNode&gt;; <span class="comment">// VNode实际上是一个树，每个VNode拥有自己的children</span></span><br><span class="line">  text: string | <span class="keyword">void</span>; <span class="comment">// 文本</span></span><br><span class="line">  elm: Node | <span class="keyword">void</span>; <span class="comment">// 对于dom对象的持有</span></span><br><span class="line">  ...</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>vnode</code> 其实是一个tree，每个 <code>vnode</code> 拥有自己的 <code>children</code> , <code>children</code> 又拥有自己的 <code>children</code> ，最终构成 <code>vnode-tree</code>。</p>
 <p><code>Vue</code> 的 <code>vnode</code> 参考了 <a href="https://github.com/snabbdom/snabbdom" title="snabbdom" target="_blank" rel="noopener">snabbdom</a>  的实现，并在 <code>snabbdom</code> 的基础上做了许多扩展，有兴趣的可以去了解一下。</p>
